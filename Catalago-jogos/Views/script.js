@@ -1,3 +1,10 @@
+//navabar
+
+document.getElementById('list').addEventListener('click',()=>{
+    document.querySelector("#menuOculto").classList.add('abrir');
+    
+})
+
 
 function carregar(){
     fetch('../dados.json')
@@ -13,7 +20,7 @@ function carregar(){
       
         
         jogos.map(jogo=>{
-            const link = document.createElement("span")
+            
             
             
             const card = document.createElement("div")
@@ -38,10 +45,11 @@ function carregar(){
             link.appendChild(card)
             // card.appendChild(img)
             
-            conteiner.appendChild(link)
+            
             card.appendChild(conteiner_img)
             conteiner_img.appendChild(img)
             card.appendChild(titulo)
+            conteiner.appendChild(card)
 
         })
     
@@ -130,3 +138,10 @@ carregar();
     })
 
 })
+
+
+
+   
+
+
+

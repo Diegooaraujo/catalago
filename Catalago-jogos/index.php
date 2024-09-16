@@ -99,7 +99,7 @@
                 <div class="jogos"><div class="img" id="god_of_war"></div></div>
                 <div class="jogos"><div class="img" id ="the_last_of_us"></div></div>
                 <div class="jogos"><div class="img" id="spiderman"></div></div>
-                <div class="jogos"><div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div></div>
+                <div class="jogos"><div class="img" ><a href="Views/playstation.html" id="vermais">Ver todos os jogos desta coleção</a></div></div>
                 
             </div>
             <div class="nitendo">
