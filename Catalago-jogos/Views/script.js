@@ -32,7 +32,6 @@ function carregar(){
             const img = document.createElement("img");
             img.classList.add("img-jogo")
             img.src = jogo.nome_imagem
-
             
 
             const titulo = document.createElement('button')
@@ -42,7 +41,7 @@ function carregar(){
             titulo.textContent = jogo.nome
 
             
-            link.appendChild(card)
+            // link.appendChild(card)
             // card.appendChild(img)
             
             

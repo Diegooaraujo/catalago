@@ -38,6 +38,7 @@ body{
     
     
     
+    
 }
 .nav-icon{
     display: flex;
@@ -78,6 +79,7 @@ ul #pc:hover{
 }
 ul #switch{
     transition: 0.7s;
+    
 }
 ul #switch:hover{
     color: red;
