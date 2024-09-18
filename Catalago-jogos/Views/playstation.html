@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="cards.js" defer></script>
     
     
 </head>
@@ -35,6 +36,8 @@
     <div id="menuOculto" class="menuOculto">
         <a href="" class="btnFechar" >&times;</a>
         <form action="" method="POST">
+
+            <h2>Filtrar Por:</h2>
 
             <label for="processador">Processador:</label>
             <select name="processador" id="processador">
@@ -72,8 +75,10 @@
                 <option value="500gb">500gb</option>
                 <option value="1tb">1tb</option>
                 <option value="2tb">2tb</option>
-               
             </select>
+
+            <label for="genero">Genero:</label>
+            <input type="text" name="genero" id="genero">
 
             <button id='botao-form' name="enviar">Enviar </button>
         </form>
@@ -84,17 +89,37 @@
 <section id="principal">
     <h1>Playtation</h1>
     <div class='conteiner'>
-        <div class="card">
+        <!-- <div class="card">
             <div class="conteiner_img">
                 <img class="img" src="god-of-war.jpg" alt="">
             </div>
             
             <button >god fo war</button>
-        </div>
+        </div> -->
+
+        <!-- <div class="con-jogo">
+            <div class="imagem">
+                <img src="god-of-war.jpg" class="img-jg" alt="">
+            </div>
+            <div class="conteiner-desc">
+                <h1 class="title-jogo">Gof of war</h1>
+                
+                <p class="desc-jg">lalalalallalalalllalalalalallal</p>
+                <div class="requisitos">
+                    <h3>requisitos recomendados:</h3>
+                    <p>intel</p>
+                </div>
+            </div>
+            
+            
+
+        </div> -->
         
     
     </div>
+
+
 </section>
 <!-- <script src="script.js"></script> -->
- <script src="cards.js"></script>
+ 
 

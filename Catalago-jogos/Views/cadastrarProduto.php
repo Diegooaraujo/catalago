@@ -9,11 +9,10 @@ if(isset ($_POST['nome'])){
     $descricao = addslashes($_POST['descricao']);
     $img = ($_FILES['img']);
     $nome_img = addslashes($_FILES['img']['name']);
-    print_r($nome_img);
     
     
 
-    move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img'.$nome_img);
+    move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/'.$nome_img);
     $stmt->getConexao();
     $stmt->cadastrarJogo($nome,$descricao,$tabela,$nome_img);
     

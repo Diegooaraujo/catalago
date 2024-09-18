@@ -14,7 +14,8 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #ebe4ce;
+  background-color: #fff;
+  
 }
 .content{
   
@@ -25,8 +26,7 @@ body {
   height: 70%;
   border-radius: 20px;
   overflow: hidden;
-  
-
+  box-shadow: 4px 4px 4px black;
 }
 
 

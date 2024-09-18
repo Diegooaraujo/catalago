@@ -33,26 +33,42 @@ header h1{
 }
 .conteiner h1{
     padding: 20px;
+    border-bottom: 1px solid #888888;
+    margin-bottom: 10px;
+    
 }
 .conteiner p{
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 20px;
+  
 }
 
 form{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items:start ;
     
     padding:20px ;
     width: 500px;
-    margin: 0 auto;
+    margin: 0 auto; */
+    display: flex;
     
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #777777;
+    margin: 20px auto;
+    width: 1000px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #575757;
 }
 label{
-    font-size: 20px;
-    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 input,button{
     margin: 10px;
@@ -61,12 +77,68 @@ input,button{
     border-radius: 10px;
     border: none;
 }
-textarea{
+input[type='text']{
     border-radius: 10px;
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px #575757;
+}
+textarea{
+    
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px #575757;
+    width: 300px;
+    height: 100px;
+    
 }
 button{
     background-color: #fffcfc;
     border-radius: 10px;
     border: none;
     padding: 10px 20px;
+    box-shadow: 2px 2px 2px #575757;
+    cursor: pointer;
+    transition: 0.5s;
 }
+button:hover{
+    transform: scale(1.2);
+}
+#imagem{
+    display:none;
+}
+#imagem-label{
+    width: 260px;
+    height: 240px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #aaa;
+    border: 2px dashed #aaa;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out,background-color ease-in-out;
+}
+#imagem-label:hover{
+    color: #ccc;
+    background-color: #949494;
+}
+button{
+    padding: 10px 20px;
+    box-shadow: 2px 2px 2px #575757;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+.desc {
+    border: 1px solid black;
+}
+.desc h3{
+    font-size: 40px;
+    font-weight: bold;
+}
+

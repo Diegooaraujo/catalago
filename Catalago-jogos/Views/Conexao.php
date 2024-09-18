@@ -22,7 +22,7 @@ class Conexao {
     }
     public function getJogos(){
         $dados = array();
-        $stmt = $this->instancia->query('SELECT * FROM playstation');
+        $stmt = $this->instancia->query('SELECT * FROM playstation join requisitos_recomendados ON playstation.fk_id = requisitos_recomendados.id');
 
         $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // $jogojosn=json_encode($dados);
@@ -100,14 +100,36 @@ class Conexao {
     }
 
     public function delete($id){
-        $stmt = $this->instancia->prepare('DELETE FROM playstation WHERE id = :id');
+        $stmt = $this->instancia->prepare('SELECT nome_imagem FROM playstation WHERE id = :id');
         $stmt->bindValue(':id',$id);
         $stmt->execute();
+        $nomeImg = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(is_file('../Midia/img/'.$nomeImg['nome_imagem'])){
+            unlink('../Midia/img/'.$nomeImg['nome_imagem']);
+            $stmt = $this->instancia->prepare('DELETE FROM playstation WHERE id = :id');
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+            
+        }else{
+            if(!is_file('../Midia/img/'.$nomeImg['nome_imagem'])){
+                echo'a imagem não existe';
+                $stmt = $this->instancia->prepare('DELETE FROM playstation WHERE id = :id');
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            echo'deu errado';
+            
+        }
+        //  $stmt = $this->instancia->prepare('DELETE FROM playstation WHERE id = :id');
+
+        //  $stmt->bindValue(':id',$id);
+        //  $stmt->execute();
     }
+     
 
 
     public function editarJogoPlay($id){
-        $stmt = $this->instancia->prepare('SELECT * FROM playstation WHERE id = :id');
+        $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM playstation as p join requisitos_recomendados as r ON p.fk_id = r.id where fk_id = :id');
         $stmt->bindValue(':id',$id);
         $stmt->execute();
         if($stmt->rowCount() > 0){
@@ -124,7 +146,7 @@ class Conexao {
         $stmt->bindValue(':img',$img);
         $stmt->bindValue(':id',$id);
         $stmt->execute();
-        header('location:admin.php');
+        //header('location:admin.php');
         
     }
 

@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="slide-box">
-                    <a href="#"><img class="img-desktop" src="Midia/img/slide/playstation.png" alt="slide 1"></a>
+                    <a href="../Catalago-jogos/Views/playstation.html"><img class="img-desktop" src="Midia/img/slide/playstation.png" alt="slide 1"></a>
                 </div>
 
                 <div class="slide-box">

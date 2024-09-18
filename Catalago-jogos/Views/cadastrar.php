@@ -27,12 +27,33 @@
         <label class='img-label' for="img">imagem:</label>
         <input type="file" name="img" id="img">
 
+        <label for="genero">Genero:</label>
+        <input type="text" name="genero" id="genero">
+
+
         <select name="tabela" id="tabela">
             <option value="playstation">Playstation</option>
             <option value="pc">PC</option>
             <option value="nitendo">Nitendo</option>
             <option value="xbox">Xbox</option>
         </select>
+
+    <h2>Requisitos:</h2>
+    <label for="os">Os:</label>
+        <input type="text" name="os" id="os">
+
+        <label for="processador">Processador:</label>
+        <input type="text" name="processador" id="processador">
+
+        <label for="placa">Placa de video:</label>
+        <input type="text" name="placa" id="plca">
+
+        <label for="memoria">Memoria:</label>
+        <input type="text" name="memoria" id="memoria">
+
+        <label for="armazenamento">Armazenamento:</label>
+        <input type="text" name="armazenamento" id="armazenameto">
+
 
         <button>enviar</button>
     </form>
