@@ -2,7 +2,7 @@
     require_once("Conexao.php");
     session_start();
     if(!isset($_SESSION['id_usuario'])){
-        header("location: login.php");
+        // header("location: login.php");
         exit;
     }
     $con = new Conexao;
@@ -54,7 +54,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk_id=<?=$jogo['fk_id']?>">[excluir]</a></td>
                     </tr>
                     <?php
                 } 

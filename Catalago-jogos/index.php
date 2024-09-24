@@ -43,8 +43,8 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li id="switch"><i class="fa-solid fa-gamepad"></i> <a href="Views/playstation.html">Nitendo</a> </li>
-                    <li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li>
+                    <li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
+                    <a href="Views/playstation.html"><li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li></a>
                     <li id="xbox"><i class="fa-brands fa-xbox"></i> Xbox</li>
                     <li id="pc"> <i class="fa-solid fa-desktop"></i> Pc</li>
                 </ul>
@@ -96,9 +96,18 @@
     <section>
         <div class="conteiner">
             <div class="play">
-                <div class="jogos"><div class="img" id="god_of_war"></div></div>
-                <div class="jogos"><div class="img" id ="the_last_of_us"></div></div>
-                <div class="jogos"><div class="img" id="spiderman"></div></div>
+                <div class="jogos">
+                    <img class="img" src="Midia/img/<?php echo $jogos[0]['nome_imagem']?>" alt="<?php echo $jogos[0]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogos[0]['nome']?></h3>
+                </div>
+                <div class="jogos">
+                    <img class="img" src="Midia/img/<?php echo $jogos[1]['nome_imagem']?>" alt="<?php echo $jogos[1]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogos[1]['nome']?></h3>
+                </div>
+                <div class="jogos"> 
+                    <img class="img" src="Midia/img/<?php echo  $jogos[2]['nome_imagem']?>" alt="<?php echo $jogos[2]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogos[2]['nome']?></h3>
+                </div>
                 <div class="jogos"><div class="img" ><a href="Views/playstation.html" id="vermais">Ver todos os jogos desta coleção</a></div></div>
                 
             </div>

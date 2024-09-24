@@ -260,3 +260,14 @@ document.addEventListener("click",(e)=>{
      })
  
  })
+
+const menuOculto = document.querySelector(".menuOculto")
+const abrirMenu = document.querySelector("#list")
+abrirMenu.addEventListener("click",()=>{
+    menuOculto.style.width = '500px';
+})
+const fecharMenu = document.querySelector(".btnFechar")
+fecharMenu.addEventListener("click",(e)=>{
+    e.preventDefault()
+    menuOculto.style.width='0px';
+})
