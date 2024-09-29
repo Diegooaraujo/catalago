@@ -1,5 +1,5 @@
 <?php
-    require_once 'Conexao.php';
+    require_once './classes/Conexao.php';
 
     $id = filter_input(INPUT_GET,'id');
     
@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>editar jogo</title>
-    <link rel="stylesheet" href="editar.css">
+    <link rel="stylesheet" href="../Formatacao/css/editar.css">
 </head>
 <body>
 <header>

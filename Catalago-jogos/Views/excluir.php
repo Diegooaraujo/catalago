@@ -1,5 +1,5 @@
 <?php
-    require_once 'Conexao.php';
+    require_once './classes/Conexao.php';
     $id = filter_input(INPUT_GET,'id');
     $fk_id = filter_input(INPUT_GET,'fk_id');
     

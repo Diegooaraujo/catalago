@@ -19,7 +19,7 @@ body{
 .navbar{
     background-color: #2c2c2c;
     padding: 1rem;
-    position: sticky;/*manter a nav bar no topo */
+    /*position: sticky;manter a nav bar no topo */
     top: 0;
     box-shadow: 10px 0px 10px #2c2c2c;
     z-index: 99;
@@ -370,8 +370,10 @@ section.slider{
 @media screen and (max-width: 1367px){
     .jogos{
         width: 220px;
-        min-height: 320px;
+        max-height: 200px;
         padding: 10px;
+        overflow: hidden;
+        
         
         
     }

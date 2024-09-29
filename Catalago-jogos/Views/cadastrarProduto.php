@@ -1,5 +1,5 @@
 <?php
-include_once('Conexao.php');
+require_once './classes/Conexao.php';
 $stmt = new Conexao;
 
 

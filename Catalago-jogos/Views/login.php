@@ -1,5 +1,5 @@
 <?php
-  require_once('Conexao.php');
+  require_once './classes/Conexao.php';
   $con = new Conexao();
   if(isset($_POST['cadastrar']))
   {
@@ -46,7 +46,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="../Formatacao/css/login.css">
   <script src="https://kit.fontawesome.com/cf6fa412bd.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -95,6 +95,6 @@
 
   </div>
 
-  <script src="login.js"></script>
+  <script src="../scripts/login.js"></script>
 </body>
 </html>

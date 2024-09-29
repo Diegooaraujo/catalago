@@ -20,9 +20,34 @@ class Conexao {
         }
         
     }
-    public function getJogos(){
+    public function getJogosPlay(){
         $dados = array();
         $stmt = $this->instancia->query('SELECT * FROM playstation');
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $jogojosn=json_encode($dados);
+        // $arq = fopen("dadosjg.json",'w+');
+        // fwrite($arq,$jogojosn);
+        // fclose($arq);
+        return $dados;
+       
+    }
+    public function getJogosPc(){
+        $dados = array();
+        $stmt = $this->instancia->query('SELECT * FROM pc');
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $dados;
+       
+    }
+    public function getJogosXbox(){
+        $dados = array();
+        $stmt = $this->instancia->query('SELECT * FROM xbox');
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $dados;
+       
+    }
+    public function getJogosnitendo(){
+        $dados = array();
+        $stmt = $this->instancia->query('SELECT * FROM nitendo');
 
         $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // $jogojosn=json_encode($dados);

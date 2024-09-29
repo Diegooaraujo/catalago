@@ -31,6 +31,7 @@ function carregar(){
         })
     })
 }
+
 carregar();
 
 document.addEventListener("click",(e)=>{

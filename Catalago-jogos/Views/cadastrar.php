@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cadastrar jogo</title>
-    <link rel="stylesheet" href="cadastrar.css">
+    <link rel="stylesheet" href="../Formatacao/css/cadastrar.css">
 </head>
 <body>
     <header>

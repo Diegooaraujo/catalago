@@ -1,24 +1,14 @@
 
-
-    
-
-
-
 <?php
-
-    require_once 'Views/autoload.php';
-    require_once 'Views/Conexao.php';
-
-        
-
+    require_once './classes/Conexao.php';
     $con = new Conexao();
     $con->getConexao();
-    $jogos = $con->getJogos(PDO::FETCH_ASSOC);
-    $json = fopen("dados.json","w+");
-    fwrite($json,json_encode($jogos));
-    fclose($json);
-   
-
+    $jogosPlay = $con->getJogosPlay(PDO::FETCH_ASSOC);
+    $jsonPlay = fopen("playstation.json","w+");
+    fwrite($jsonPlay,json_encode($jogosPlay));
+    fclose($jsonPlay);
+    $jogosNitendo = $con->getJogosnitendo(PDO::FETCH_ASSOC);
+    fwrite($json)
 
 
 
@@ -32,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
     <link rel="stylesheet" href="Formatacao/css/index.css">
-    <script src="slide.js" defer></script>
+    <script src="./scripts/slide.js" defer></script>
     
 </head>
 <body>
@@ -136,4 +126,3 @@
     </footer>
 </body>
 </html>
-
