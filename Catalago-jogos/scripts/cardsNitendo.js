@@ -1,13 +1,13 @@
 
 function carregar(){
-    fetch('../Views/playstation.json').then(response=>response.json()).then(jogos=>{
+    fetch('../Views/nitendo.json').then(response=>response.json()).then(jogos=>{
         const conteiner = document.querySelector(".conteiner")
 
         jogos.map(jogo=>{
             const card = document.createElement("div")
             card.classList.add("card")
 
-            const caminhoImg = '../Midia/img/' + jogo.nome_imagem
+            const caminhoImg = '../Midia/img/img_nitendo/' + jogo.nome_imagem
             const img = document.createElement("img")
             img.classList.add("img")
             img.src = caminhoImg
@@ -41,7 +41,7 @@ document.addEventListener("click",(e)=>{
     const conts = e.target.className
     
  
-     fetch('../playstation.json')
+     fetch('../Views/nitendo.json')
      .then(response=>response.json())
      .then(jogos=>{
  
@@ -60,7 +60,7 @@ document.addEventListener("click",(e)=>{
 
                  const img = document.createElement("img");
                  img.classList.add("img-jg")
-                 img.src = '../Midia/img/' + jogo.nome_imagem
+                 img.src = '../Midia/img/img_nitendo/' + jogo.nome_imagem
                  
                  const conteiner_img = document.createElement("div");
                  conteiner_img.classList.add('imagem')

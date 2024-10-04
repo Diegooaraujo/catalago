@@ -1,5 +1,5 @@
 <?php
-  require_once './classes/Conexao.php';
+  require_once '../autoload.php';
   $con = new Conexao();
   if(isset($_POST['cadastrar']))
   {

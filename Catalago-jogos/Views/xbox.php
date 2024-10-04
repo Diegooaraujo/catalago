@@ -1,3 +1,16 @@
+<?php
+     require_once '../autoload.php';
+     $jogo = new Xbox();
+     $jogo->getConexao();
+     $jogosXbox = $jogo->getJogosXbox();
+     if(!file_exists('xbox.json')){
+        $jsonXbox = fopen("xbox.json","w+");
+        fwrite($jsonXbox,json_encode($jogosXbox));
+        fclose($jsonXbox);
+     }
+     
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +19,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../Formatacao/css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../scripts/cards.js" defer></script>
+    <script src="../scripts/cardsXbox.js" defer ></script>
     
     
 </head>
@@ -87,7 +100,7 @@
 
     <!--fim barra lateral-->
 <section id="principal">
-    <h1>Playtation</h1>
+    <h1>Xbox</h1>
     <div class='conteiner'>
         <!-- <div class="card">
             <div class="conteiner_img">

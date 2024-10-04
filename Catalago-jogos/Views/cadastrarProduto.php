@@ -1,6 +1,5 @@
 <?php
-require_once './classes/Conexao.php';
-$stmt = new Conexao;
+
 
 
 if(isset ($_POST['nome'])){
@@ -18,19 +17,43 @@ if(isset ($_POST['nome'])){
     $armazenamento = addslashes($_POST['armazenamento']);
 
 
+    if($tabela == 'nitendo'){
+        require_once'../classes/Nitendo.php';
+        $conn = new Nitendo;
+        $conn->getConexao();
+        $fk_id = $conn->cadastrarRequisitosNitendo($os,$armazenamento);
+        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_nitendo/'.$nome_img);
+        $conn->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+        header("location: admin.php");
 
+    }
+    elseif($tabela == 'playstation'){
+        require_once '../classes/Conexao.php';
+        $stmt = new Conexao;
+        $stmt->getConexao();
+        $fk_id = $stmt->cadastrarRequisitos($os,$processador,$placa_video,$memoria,$armazenamento);
+        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/'.$nome_img);
+        $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+        header("location: admin.php");
+    }elseif($tabela == 'xbox'){
+        require_once '../classes/Xbox.php';
+        $stmt = new Xbox;
+        $stmt->getConexao();
+        $fk_id = $stmt->cadastrarRequisitosXbox($os,$armazenamento);
+        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_xbox/'.$nome_img);
+        $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+        header('Location:admin.php');
+    }elseif($tabela == 'pc'){
+        require_once '../classes/Pc.php';
+        $stmt = new Pc;
+        $stmt->getConexao();
+        $fk_id = $stmt->cadastrarRequisitosPc($os,$processador,$placa_video,$memoria,$armazenamento);
+        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_pc/'.$nome_img);
+        $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+        header("location: admin.php");
+    }
     
-    $stmt->getConexao();
-    $fk_id = $stmt->cadastrarRequisitos($os,$processador,$placa_video,$memoria,$armazenamento);
     
-    
-    
-    
-    
-
-    move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/'.$nome_img);
-    
-    $stmt->cadastrarJogo($nome,$descricao,$tabela,$nome_img,$genero, $fk_id);
 
     
     
@@ -41,7 +64,7 @@ if(isset ($_POST['nome'])){
 
 
 //array com esxtensões permitidas
-$_UP['exntensões'] = array('png','jpg','jpeg')
+// $_UP['exntensões'] = array('png','jpg','jpeg')
 ?>
 
 ?>

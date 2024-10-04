@@ -1,13 +1,33 @@
 <?php
-    require_once './classes/Conexao.php';
+    require_once '../autoload.php';
 
     $id = filter_input(INPUT_GET,'id');
+    $tabela = filter_input(INPUT_GET,'tabela');
+
     
 
-    if($id){
-        $stmt = new Conexao;
-        $stmt->getConexao();
-        $jogo = $stmt->editarJogoPlay($id);
+    if($tabela == 'playstation'|| $tabela == "nitendo" || $tabela == 'pc' || $tabela == 'xbox'){
+        if($tabela == "playstation"){
+            $stmt = new Playstation;
+            $stmt->getConexao();
+            $jogo = $stmt->editarJogoPlay($id);
+        }
+        if( $tabela == "nitendo"){
+            $stmt = new Nitendo;
+            $stmt->getConexao();
+            $jogo = $stmt->editarJogoNitendo($id);
+        }
+        if($tabela == 'pc'){
+            $stmt = new Pc;
+            $stmt->getConexao();
+            $jogo = $stmt->editarJogoPc($id);
+        }
+        if($tabela == 'xbox'){
+            $stmt = new Xbox;
+            $stmt->getConexao();
+            $jogo = $stmt->editarJogoXbox($id);
+        }
+       
         
 
     }
@@ -50,6 +70,7 @@
     <form method="POST" action="editarAction.php" enctype="multipart/form-data" >
 
         <input type="hidden" name="id" value="<?=$jogo['fk_id']?>">
+        <input type="hidden" name="tabela" value="<?=$tabela?>">
 
         <label for="nome">
             Nome:<input type="text" name="nome" id="nome">

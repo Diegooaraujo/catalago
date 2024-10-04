@@ -1,15 +1,44 @@
 
 <?php
-    require_once './classes/Conexao.php';
+    require_once './autoload.php';
     $con = new Conexao();
     $con->getConexao();
-    $jogosPlay = $con->getJogosPlay(PDO::FETCH_ASSOC);
-    $jsonPlay = fopen("playstation.json","w+");
-    fwrite($jsonPlay,json_encode($jogosPlay));
-    fclose($jsonPlay);
-    $jogosNitendo = $con->getJogosnitendo(PDO::FETCH_ASSOC);
-    fwrite($json)
+    $play = new Playstation();
+    $play->getConexao();
+    $jogosPlay = $play->getJogosPlay();
+  
+    $nitendo = new Nitendo();
+    $nitendo->getConexao();
+    $jogosNitendo = $nitendo->getJogosNitendo();
+    
 
+    $xbox = new Xbox;
+    $xbox->getConexao();
+    $jogosXbox =$xbox->getJogosXbox();
+
+    $pc = new Pc;
+    $pc->getConexao();
+    $jogosPc = $pc->getJogosPc();
+
+    if(0 == 0){
+
+        if(file_exists('./Views/playstation.json')){
+            $caminhoP = './Views/playstation.json';
+            unlink($caminhoP);
+        }
+        if(file_exists('./Views/nitendo.json')){
+            $caminhoN ='./Views/nitendo.json';
+            unlink($caminhoN);  
+        }
+        if(file_exists('./Views/xbox.json')){
+            $caminhoB = './Views/xbox.json';
+            unlink($caminhoB);
+        }
+        if(file_exists('./Views/pc.json')){
+            $caminhoPc = './Views/pc.json';
+            unlink($caminhoPc);
+        }
+    }
 
 
 ?>
@@ -23,6 +52,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="Formatacao/css/index.css">
     <script src="./scripts/slide.js" defer></script>
+    <script src="./scripts/carregar-banco.js" defer type="module"></script>
+
     
 </head>
 <body>
@@ -33,10 +64,13 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
-                    <a href="Views/playstation.html"><li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li></a>
-                    <li id="xbox"><i class="fa-brands fa-xbox"></i> Xbox</li>
-                    <li id="pc"> <i class="fa-solid fa-desktop"></i> Pc</li>
+                    
+                    <a href="Views/playstation.php"><li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li></a>
+                    <a href="Views/xbox.php"> <li id="xbox"><i class="fa-brands fa-xbox"></i> Xbox</li></a>
+                    <a href="Views/nitendo.php"><li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li></a>
+                    <a href="Views/pc.php"><li id="pc"> <i class="fa-solid fa-desktop"></i> Pc</li></a>
+                   
+                    
                 </ul>
 
             </nav>
@@ -87,36 +121,52 @@
         <div class="conteiner">
             <div class="play">
                 <div class="jogos">
-                    <img class="img" src="Midia/img/<?php echo $jogos[0]['nome_imagem']?>" alt="<?php echo $jogos[0]['nome_imagem']?>">
-                    <h3 class="titleJogo"><?php echo $jogos[0]['nome']?></h3>
+                    <img class="img" src="Midia/img/<?php echo $jogosPlay[0]['nome_imagem']?>" alt="<?php echo $jogosPlay[0]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogosPlay[0]['nome']?></h3>
                 </div>
                 <div class="jogos">
-                    <img class="img" src="Midia/img/<?php echo $jogos[1]['nome_imagem']?>" alt="<?php echo $jogos[1]['nome_imagem']?>">
-                    <h3 class="titleJogo"><?php echo $jogos[1]['nome']?></h3>
+                    <img class="img" src="Midia/img/<?php echo $jogosPlay[1]['nome_imagem']?>" alt="<?php echo $jogosPlay[1]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogosPlay[1]['nome']?></h3>
                 </div>
                 <div class="jogos"> 
-                    <img class="img" src="Midia/img/<?php echo  $jogos[2]['nome_imagem']?>" alt="<?php echo $jogos[2]['nome_imagem']?>">
-                    <h3 class="titleJogo"><?php echo $jogos[2]['nome']?></h3>
+                    <img class="img" src="Midia/img/<?php echo  $jogosPlay[2]['nome_imagem']?>" alt="<?php echo $jogosPlay[2]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogosPlay[2]['nome']?></h3>
                 </div>
                 <div class="jogos"><div class="img" ><a href="Views/playstation.html" id="vermais">Ver todos os jogos desta coleção</a></div></div>
                 
             </div>
             <div class="nitendo">
-                <div class="jogos"><div class="img" id="superMario"></div></div>
-                <div class="jogos"><div class="img" id="pokemon"></div></div>
-                <div class="jogos"><div class="img" id="hyrule"></div></div>
+                <div class="jogos"> <img class="img" src="Midia/img/img_nitendo/<?php echo $jogosNitendo[0]['nome_imagem']?>" alt="<?php echo $jogosNitendo[0]['nome_imagem']?>">
+                <h3 class="titleJogo"><?php echo $jogosNitendo[0]['nome']?></h3>
+            </div>
+                <div class="jogos"> <img class="img" src="Midia/img/img_nitendo/<?php echo $jogosNitendo[1]['nome_imagem']?>" alt="<?php echo $jogosNitendo[1]['nome_imagem']?>">
+                <h3 class="titleJogo"><?php echo $jogosNitendo[1]['nome']?></h3></div>
+                <div class="jogos"> <img class="img" src="Midia/img/img_nitendo/<?php echo $jogosNitendo[2]['nome_imagem']?>" alt="<?php echo $jogosNitendo[2]['nome_imagem']?>">
+                <h3 class="titleJogo"><?php echo $jogosNitendo[2]['nome']?></h3></div>
                 <div class="jogos"><div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div></div>
             </div>
             <div class="xbox">
-                <div class="jogos"><div class="img" id="fc24"></div></div>
-                <div class="jogos"><div class="img" id="payDay"></div></div>
-                <div class="jogos"><div class="img" id="seaOfThieves"></div></div>
+                <div class="jogos"><img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[0]['nome_imagem']?>" alt="<?php echo $jogosXbox[0]['nome_imagem']?>">
+                <h3 class="titleJogo"><?php echo $jogosXbox[0]['nome']?></h3></div>
+                <div class="jogos"><img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[1]['nome_imagem']?>" alt="<?php echo $jogosXbox[1]['nome_imagem']?>">
+                <h3 class="titleJogo"><?php echo $jogosXbox[1]['nome']?></h3></div>
+                <div class="jogos"><img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[2]['nome_imagem']?>" alt="<?php echo $jogosXbox[2]['nome_imagem']?>">
+                <h3 class="titleJogo"><?php echo $jogosXbox[2]['nome']?></h3></div>
                 <div class="jogos"><div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div></div>
             </div>
             <div class="pc">
-                <div class="jogos"><div class="img" id="gta"></div></div>
-                <div class="jogos"><div class="img" id="valorant"></div></div>
-                <div class="jogos"><div class="img" id="read_dead"></div></div>
+                <div class="jogos">
+                    <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[0]['nome_imagem']?>" alt="<?php echo $jogosPc[0]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogosPc[0]['nome']?></h3>
+                </div>
+                <div class="jogos">
+                    <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[1]['nome_imagem']?>" alt="<?php echo $jogosPc[1]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogosPc[1]['nome']?></h3>
+                </div>
+                <div class="jogos">
+                    <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[2]['nome_imagem']?>" alt="<?php echo $jogosPc[2]['nome_imagem']?>">
+                    <h3 class="titleJogo"><?php echo $jogosPc[2]['nome']?></h3>
+                </div>
                 <div class="jogos"><div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div></div>
             </div>
         </div>

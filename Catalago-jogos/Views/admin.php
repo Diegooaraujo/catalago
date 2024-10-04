@@ -1,13 +1,30 @@
 <?php
-    require_once './classes/Conexao.php';
+   require_once '../autoload.php';
     session_start();
     if(!isset($_SESSION['id_usuario'])){
         // header("location: login.php");
         exit;
     }
-    $con = new Conexao;
+    
+    
+    $con = new Conexao();
     $con->getConexao();
-    $jogosPlay = $con->getJogosplay();
+    $play = new Playstation();
+    $play->getConexao();
+    $jogosPlay = $play->getJogosPlay();
+  
+    $nitendo = new Nitendo();
+    $nitendo->getConexao();
+    $jogosNitendo = $nitendo->getJogosNitendo();
+    
+
+    $xbox = new Xbox;
+    $xbox->getConexao();
+    $jogosXbox =$xbox->getJogosXbox();
+
+    $pc = new Pc;
+    $pc->getConexao();
+    $jogosPc = $pc->getJogosPc();
 
     
 
@@ -51,7 +68,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk_id=<?=$jogo['fk_id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>"&tabela=playstation>[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk_id=<?=$jogo['fk_id']?>">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
@@ -69,13 +86,13 @@
                 <th class="titulo">Ações</th>
             </tr>
             <?php 
-                foreach($jogosPlay as $jogo)
+                foreach($jogosXbox as $jogo)
                 { ?>
                     <tr>
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id'] ?>&tabela=xbox">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
@@ -93,13 +110,13 @@
                 <th class="titulo">Ações</th>
             </tr>
             <?php 
-                foreach($jogosPlay as $jogo)
+                foreach($jogosPc as $jogo)
                 { ?>
                     <tr>
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=pc">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
@@ -117,13 +134,13 @@
                 <th class="titulo">Ações</th>
             </tr>
             <?php 
-                foreach($jogosPlay as $jogo)
+                foreach($jogosNitendo as $jogo)
                 { ?>
                     <tr>
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=nitendo">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
