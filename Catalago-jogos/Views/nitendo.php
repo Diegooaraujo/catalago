@@ -1,13 +1,13 @@
 <?php
-     require_once '../autoload.php';
-     $jogo = new Nitendo();
-     $jogo->getConexao();
-     $jogosNitendo = $jogo->getJogosNitendo();
-     if(!file_exists('nitendo.json')){
-        $jsonNitendo = fopen("nitendo.json","w+");
-        fwrite($jsonNitendo,json_encode($jogosNitendo));
-        fclose($jsonNitendo);
-     }
+    //  require_once '../autoload.php';
+    //  $jogo = new Nitendo();
+    //  $jogo->getConexao();
+    //  $jogosNitendo = $jogo->getJogosNitendo();
+    //  if(!file_exists('nitendo.json')){
+    //     $jsonNitendo = fopen("nitendo.json","w+");
+    //     fwrite($jsonNitendo,json_encode($jogosNitendo));
+    //     fclose($jsonNitendo);
+    //  }
      
 ?>
 

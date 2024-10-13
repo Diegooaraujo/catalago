@@ -1,13 +1,13 @@
 <?php
-     require_once '../autoload.php';
-     $jogo = new Pc();
-     $jogo->getConexao();
-     $jogosPc = $jogo->getJogosPc();
-     if(!file_exists('pc.json')){
-        $jsonPc = fopen("pc.json","w+");
-        fwrite($jsonPc,json_encode($jogosPc));
-        fclose($jsonPc);
-     }
+    //  require_once '../autoload.php';
+    //  $jogo = new Pc();
+    //  $jogo->getConexao();
+    //  $jogosPc = $jogo->getJogosPc();
+    //  if(!file_exists('pc.json')){
+    //     $jsonPc = fopen("pc.json","w+");
+    //     fwrite($jsonPc,json_encode($jogosPc));
+    //     fclose($jsonPc);
+    //  }
      
 ?>
 

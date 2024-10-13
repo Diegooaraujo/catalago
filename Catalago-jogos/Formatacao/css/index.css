@@ -236,6 +236,16 @@ section.slider{
     align-items: center;
 
 }
+.conteinerJg{
+    display: flex;
+    width: 100%;
+    height: 460px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    justify-content: space-around;
+}
 .play{
     background-image: url("playstation_fundo.webp");
     background-position-y:-160px;
@@ -248,7 +258,21 @@ section.slider{
     margin-bottom: 40px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.521);
     justify-content: space-around;
+    flex-direction: column;
 
+}
+.jogosTitle{
+   display: flex;
+   justify-content: center;
+    padding-top:40px;
+    height: 100px;
+   
+}
+.jogosTitle h1{
+    color: #fff;
+    font-size: 3rem;
+
+    
 }
 .nitendo{
     background-image: url("mario_fundo.webp");
@@ -262,6 +286,7 @@ section.slider{
     border-radius: 20px;
     margin-bottom: 40px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.521);
+    flex-direction: column;
 }
 .xbox{
     background-image: url("xbox_fundo.jpg");
@@ -295,10 +320,12 @@ section.slider{
     width: 310px;
     background-color: #a8a8a8;
     border-radius: 20px;
-    margin: 79px auto;
-    margin-top: 190px;
+    margin: 85px auto;
+    margin-top: 123px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.521);
     padding: 10px;
+  
+    
     
 }
 .img{
@@ -314,7 +341,119 @@ section.slider{
     font-weight: bold;
     text-align: center;
     padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
 }
+.titleJogo:hover{
+    
+    box-shadow: 0px 0px 5px black;
+}
+
+/*card*/
+.con-jogo{
+    position: fixed;
+    width: 1600px;
+    height: 500px;
+    background-color: #636363;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px 2px black;
+    display: flex;
+    z-index: 3;
+    
+}
+
+.title-jogo{
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600px;
+    border-bottom: 1px solid black;
+}
+.imagem{
+    min-width: 30%;
+    height: 100%;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.img-jg{
+    width: 100%;
+    height: 100%;
+    border-radius:20px 0px 0px 20px;
+}
+
+.fechar{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    margin: 15px;
+    background-color: red;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.fx{
+    cursor: pointer;
+}
+ /* .desc-jg{
+    
+    
+    
+}  */
+.requisitos{
+    border: 1px solid black;
+    padding: 20px;
+    margin-right: 10px;
+   
+    
+    
+    
+    
+}
+.requisitos h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.divRequisitos{
+    border-bottom: 1px solid black;
+    display: flex;
+    margin-bottom: 10px;
+
+    
+}
+.topico{
+    
+    width: 160px;
+
+}
+.divdados{
+    
+    display: flex;
+    align-items: center;
+}
+.divGeneroJogo{
+    display: flex;
+}
+.divGeneroJogo h3{
+    padding-right: 15px;
+}
+.divDescricao{
+    display: flex;
+    margin: 10px 10px 10px 0;
+}
+.titleDescricao{
+    padding-right: 15px;
+}
+/*fim card*/
 
 @media screen and (max-width: 1800px){
     .jogos{

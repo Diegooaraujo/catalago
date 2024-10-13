@@ -33,13 +33,19 @@
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-
+            <!-- <div class="tabela">
+                <input type="radio" name ="tabela" id='play' value = 'playstation' > playstation
+                <input type="radio" name ="tabela" id='nitendo' value='nitendo'> nitendo
+                <input type="radio" name ="tabela" id='pc' value='pc' checked> pc
+                <input type="radio" name ="tabela" id='xbox' value="xbox"> xbox
+            </div> -->
+            
             <select name="tabela" id="tabela">
                 <option value="playstation">Playstation</option>
-                <option value="pc">PC</option>
+                <option value="pc" selected>PC</option>
                 <option value="nitendo">Nitendo</option>
                 <option value="xbox">Xbox</option>
-            </select>
+            </select> 
 
             <h2>Requisitos:</h2>
             <label id="forOs" for="os">Os:</label>
@@ -57,8 +63,38 @@
             <label id="forArmazenamento" for="armazenamento">Armazenamento:</label>
             <input type="text" name="armazenamento" id="armazenamento">
 
+            <h2>multiplataforma</h2>
+            <select name="plataforma" id="plataforma">
+                <option value="sim" selected>Sim</option>
+                <option value="nao" >Não</option>
+            </select> 
+            
+            <select name="selectPlataforma" id="selectPlataforma">
+                <option value="playstation">Playstation</option>
+                <option value="pc" selected>PC</option>
+                <option value="nitendo">Nitendo</option>
+                <option value="xbox">Xbox</option>
+            </select> 
+            
+            <label id="forOsPlataform" for="osPlataform">Os:</label>
+            <input type="text" name="osPlataform" id="osPlataform">
 
-            <button>enviar</button>
+            <label id="forProcessadorPlataform" for="processadorPlataform">Processador:</label>
+            <input type="text" name="processadorPlataform" id="processadorPlataform">
+
+            <label id="forPlacaPlataform" for="placaPlataform">Placa de video:</label>
+            <input type="text" name="placaPlataform" id="placaPlataform">
+
+            <label id="forMemoriaPlataform" for="memoriaPlataform">Memoria:</label>
+            <input type="text" name="memoriaPlataform" id="memoriaPlataform">
+
+            <label id="forArmazenamentoPlataform" for="armazenamentoPlataform">Armazenamento:</label>
+            <input type="text" name="armazenamentoPlataform" id="armazenamentoPlataform">
+            
+
+
+            <span class="alert"></span>
+            <button class="btnEnviar">enviar</button>
         </form>
 
     </div>

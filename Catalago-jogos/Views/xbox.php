@@ -1,13 +1,13 @@
 <?php
-     require_once '../autoload.php';
-     $jogo = new Xbox();
-     $jogo->getConexao();
-     $jogosXbox = $jogo->getJogosXbox();
-     if(!file_exists('xbox.json')){
-        $jsonXbox = fopen("xbox.json","w+");
-        fwrite($jsonXbox,json_encode($jogosXbox));
-        fclose($jsonXbox);
-     }
+    //  require_once '../autoload.php';
+    //  $jogo = new Xbox();
+    //  $jogo->getConexao();
+    //  $jogosXbox = $jogo->getJogosXbox();
+    //  if(!file_exists('xbox.json')){
+    //     $jsonXbox = fopen("xbox.json","w+");
+    //     fwrite($jsonXbox,json_encode($jogosXbox));
+    //     fclose($jsonXbox);
+    //  }
      
 ?>
 

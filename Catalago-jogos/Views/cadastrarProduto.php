@@ -32,7 +32,7 @@ if(isset ($_POST['nome'])){
         $stmt = new Conexao;
         $stmt->getConexao();
         $fk_id = $stmt->cadastrarRequisitos($os,$processador,$placa_video,$memoria,$armazenamento);
-        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/'.$nome_img);
+        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_playstation'.$nome_img);
         $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
         header("location: admin.php");
     }elseif($tabela == 'xbox'){
