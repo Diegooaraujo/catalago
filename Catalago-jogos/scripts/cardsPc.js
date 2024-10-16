@@ -1,6 +1,6 @@
 
 function carregar(){
-    fetch('../Views/pc.json').then(response=>response.json()).then(jogos=>{
+    fetch('../pc.json').then(response=>response.json()).then(jogos=>{
         const conteiner = document.querySelector(".conteiner")
 
         jogos.map(jogo=>{
@@ -41,7 +41,7 @@ document.addEventListener("click",(e)=>{
     const conts = e.target.className
     
  
-     fetch('../Views/pc.json')
+     fetch('../pc.json')
      .then(response=>response.json())
      .then(jogos=>{
  

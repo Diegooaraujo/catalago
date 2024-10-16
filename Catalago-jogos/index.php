@@ -122,6 +122,8 @@
             </nav>
             <div class="nav-icon">
                 <img id="list" src="Midia/img/icon/list.svg" alt="">
+                
+
             </div>
         </div>
 
@@ -182,7 +184,7 @@
                         <img class="img" src="Midia/img/img_playstation/<?php echo  $jogosPlay[2]['nome_imagem']?>" alt="<?php echo $jogosPlay[2]['nome_imagem']?>">
                         <button class="titleJogo playstation" id="<?php echo$jogosPlay[2]['fk_id'] ?>"><?php echo $jogosPlay[2]['nome']?> </button>
                     </div>
-                    <div class="jogos"><div class="img" ><a href="Views/playstation.php" id="vermais">Ver todos os jogos desta coleção</a></div></div>
+                    <div class="jogos"><div class="img" ><a href="Views/playstation.php" class="vermais">Ver todos os jogos desta coleção</a></div></div>
                 </div>
                 
                 
@@ -205,41 +207,53 @@
                         <button class="titleJogo nitendos" id="<?php echo$jogosNitendo[2]['fk_id'] ?>"><?php echo $jogosNitendo[2]['nome']?> </button>
                     </div>
                     <div class="jogos">
-                        <div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div>
+                        <div class="img" ><a href="./Views/nitendo.php" class="vermais">Ver todos os jogos desta coleção</a></div>
                     </div>
                 </div>
             </div>
             <div class="xbox">
-                <div class="jogos">
-                    <img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[0]['nome_imagem']?>" alt="<?php echo $jogosXbox[0]['nome_imagem']?>">
-                    <button class="titleJogo xboxs" id="<?php echo$jogosXbox[0]['fk_id'] ?>"><?php echo $jogosXbox[0]['nome']?></button>
+                <div class="jogosTitle">
+                    <h1><i class="fa-brands fa-xbox"></i> Xbox</h1>
                 </div>
-                <div class="jogos">
-                    <img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[1]['nome_imagem']?>" alt="<?php echo $jogosXbox[1]['nome_imagem']?>">
-                    <button class="titleJogo xboxs" id="<?php echo$jogosXbox[1]['fk_id'] ?>"><?php echo $jogosXbox[1]['nome']?> </button>
+                <div class="conteinerJg">
+                    <div class="jogos">
+                        <img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[0]['nome_imagem']?>" alt="<?php echo $jogosXbox[0]['nome_imagem']?>">
+                        <button class="titleJogo xboxs" id="<?php echo$jogosXbox[0]['fk_id'] ?>"><?php echo $jogosXbox[0]['nome']?></button>
+                    </div>
+                    <div class="jogos">
+                        <img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[1]['nome_imagem']?>" alt="<?php echo $jogosXbox[1]['nome_imagem']?>">
+                        <button class="titleJogo xboxs" id="<?php echo$jogosXbox[1]['fk_id'] ?>"><?php echo $jogosXbox[1]['nome']?> </button>
+                    </div>
+                    <div class="jogos">
+                        <img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[2]['nome_imagem']?>" alt="<?php echo $jogosXbox[2]['nome_imagem']?>">
+                        <button class="titleJogo xboxs" id="<?php echo$jogosXbox[2]['fk_id'] ?>"><?php echo $jogosXbox[2]['nome']?> </button>
+                    </div>
+                    <div class="jogos">
+                        <div class="img" ><a href="./Views/xbox.php" class="vermais">Ver todos os jogos desta coleção</a></div>
+                    </div>
                 </div>
-                <div class="jogos">
-                    <img class="img" src="Midia/img/img_xbox/<?php echo $jogosXbox[2]['nome_imagem']?>" alt="<?php echo $jogosXbox[2]['nome_imagem']?>">
-                    <button class="titleJogo xboxs" id="<?php echo$jogosXbox[2]['fk_id'] ?>"><?php echo $jogosXbox[2]['nome']?> </button>
-                </div>
-                <div class="jogos">
-                    <div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div>
-                </div>
+                
             </div>
             <div class="pc">
-                <div class="jogos">
-                    <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[0]['nome_imagem']?>" alt="<?php echo $jogosPc[0]['nome_imagem']?>">
-                    <button class="titleJogo pcs" id="<?php echo$jogosPc[0]['fk_id'] ?>"><?php echo $jogosPc[0]['nome']?> </button>
+                <div class="jogosTitle">
+                    <h1><i class="fa-solid fa-computer"></i> Pc</h1>
                 </div>
-                <div class="jogos">
-                    <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[1]['nome_imagem']?>" alt="<?php echo $jogosPc[1]['nome_imagem']?>">
-                    <button class="titleJogo pcs" id="<?php echo$jogosPc[1]['fk_id'] ?>"><?php echo $jogosPc[1]['nome']?> </button>
+                <div class="conteinerJg">
+                    <div class="jogos">
+                        <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[0]['nome_imagem']?>" alt="<?php echo $jogosPc[0]['nome_imagem']?>">
+                        <button class="titleJogo pcs" id="<?php echo$jogosPc[0]['fk_id'] ?>"><?php echo $jogosPc[0]['nome']?> </button>
+                    </div>
+                    <div class="jogos">
+                        <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[1]['nome_imagem']?>" alt="<?php echo $jogosPc[1]['nome_imagem']?>">
+                        <button class="titleJogo pcs" id="<?php echo$jogosPc[1]['fk_id'] ?>"><?php echo $jogosPc[1]['nome']?> </button>
+                    </div>
+                    <div class="jogos">
+                        <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[2]['nome_imagem']?>" alt="<?php echo $jogosPc[2]['nome_imagem']?>">
+                        <button class="titleJogo pcs" id="<?php echo$jogosPc[1]['fk_id'] ?>"><?php echo $jogosPc[1]['nome']?> </button>
+                    </div>
+                    <div class="jogos"><div class="img" ><a href="./Views/pc.php" class="vermais">Ver todos os jogos desta coleção</a></div></div>
                 </div>
-                <div class="jogos">
-                    <img class="img" src="Midia/img/img_pc/<?php echo $jogosPc[2]['nome_imagem']?>" alt="<?php echo $jogosPc[2]['nome_imagem']?>">
-                    <button class="titleJogo pcs" id="<?php echo$jogosPc[1]['fk_id'] ?>"><?php echo $jogosPc[1]['nome']?> </button>
-                </div>
-                <div class="jogos"><div class="img" ><p id="vermais">Ver todos os jogos desta coleção</p></div></div>
+
             </div>
         </div>
     </section>
