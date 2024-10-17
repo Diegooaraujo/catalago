@@ -31,10 +31,18 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
-                    <a href="playstation.html"><li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li></a>
-                    <li id="xbox"><i class="fa-brands fa-xbox"></i> Xbox</li>
-                    <li id="pc"> <i class="fa-solid fa-desktop"></i> Pc</li>
+                <a href="nitendo.php">
+                        <li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
+                    </a>
+                    <a href="playstation.php">
+                        <li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li>
+                    </a>
+                    <a href="xbox.php">
+                        <li id="xbox"><i class="fa-brands fa-xbox"></i> Xbox</li>
+                    </a>
+                    <a href="pc.php">
+                        <li id="pc"> <i class="fa-solid fa-desktop"></i> Pc</li>
+                    </a>
                 </ul>
 
             </nav>
