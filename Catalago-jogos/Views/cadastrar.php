@@ -90,7 +90,32 @@
 
             <label id="forArmazenamentoPlataform" for="armazenamentoPlataform">Armazenamento:</label>
             <input type="text" name="armazenamentoPlataform" id="armazenamentoPlataform">
-            
+            <h2>Adicionar plataforma</h2>
+            <select name="plataforma2" id="plataforma2">
+                <option value="sim" selected>Sim</option>
+                <option value="nao" >Não</option>
+            </select> 
+            <select name="selectPlataforma2" id="selectPlataforma2">
+                <option value="playstation">Playstation</option>
+                <option value="pc" >PC</option>
+                <option value="nitendo" selected>Nitendo</option>
+                <option value="xbox">Xbox</option>
+            </select> 
+            <label id="forOsPlataform2" for="osPlataform2">Os:</label>
+            <input type="text" name="osPlataform2" id="osPlataform2">
+
+            <label id="forProcessadorPlataform2" for="processadorPlataform2">Processador:</label>
+            <input type="text" name="processadorPlataform2" id="processadorPlataform2">
+
+            <label id="forPlacaPlataform2" for="placaPlataform2">Placa de video:</label>
+            <input type="text" name="placaPlataform2" id="placaPlataform2">
+
+            <label id="forMemoriaPlataform2" for="memoriaPlataform2">Memoria:</label>
+            <input type="text" name="memoriaPlataform2" id="memoriaPlataform2">
+
+            <label id="forArmazenamentoPlataform2" for="armazenamentoPlataform2">Armazenamento:</label>
+            <input type="text" name="armazenamentoPlataform2" id="armazenamentoPlataform2">
+
 
 
             <span class="alert"></span>
