@@ -16,22 +16,23 @@ if(isset ($_POST['nome'])){
     $memoria = addslashes($_POST['memoria']);
     $armazenamento = addslashes($_POST['armazenamento']);
 
+    $plataforma = addslashes($_POST['plataforma']);
+    
 
     if($tabela == 'nitendo'){
-        require_once'../classes/Nitendo.php';
+        require_once '../classes/Nitendo.php';
         $conn = new Nitendo;
         $conn->getConexao();
         $fk_id = $conn->cadastrarRequisitosNitendo($os,$armazenamento);
-        move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_nitendo/'.$nome_img);
         $conn->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
         header("location: admin.php");
 
     }
     elseif($tabela == 'playstation'){
-        require_once '../classes/Conexao.php';
-        $stmt = new Conexao;
+        require_once '../classes/Playstation.php';
+        $stmt = new Playstation;
         $stmt->getConexao();
-        $fk_id = $stmt->cadastrarRequisitos($os,$processador,$placa_video,$memoria,$armazenamento);
+        $fk_id = $stmt->cadastrarRequisitosPlay($os,$armazenamento);
         move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_playstation'.$nome_img);
         $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
         header("location: admin.php");
@@ -44,6 +45,7 @@ if(isset ($_POST['nome'])){
         $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
         header('Location:admin.php');
     }elseif($tabela == 'pc'){
+
         require_once '../classes/Pc.php';
         $stmt = new Pc;
         $stmt->getConexao();
@@ -52,19 +54,76 @@ if(isset ($_POST['nome'])){
         $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
         header("location: admin.php");
     }
-    
-    
 
+    if(isset($_POST['plataforma']) ){
+        $plataforma = addslashes($_POST['plataforma']);
+        
+        if($plataforma == 'sim'){
+            
+            $selectPlataforma = addslashes($_POST['selectPlataforma']);
     
+            if($selectPlataforma == "nitendo"){
+                $osMultiplataforma = addslashes($_POST['osPlataform']);
+                $armazenamentoMulti = addslashes($_POST['armazenamentoPlataform']);
+                require_once '../classes/Nitendo.php';
+                $conn = new Nitendo;
+                $conn->getConexao();
+                $fk_id = $conn->cadastrarRequisitosNitendo($osMultiplataforma,$armazenamentoMulti);
+                move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_nitendo/'.$nome_img);
+                $conn->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+                header("location: admin.php");
+                
+                
     
-}else{
+            } elseif($selectPlataforma == "playstation"){
+                $osMultiplataforma = addslashes($_POST['osPlataform']);
+                $armazenamentoMulti = addslashes($_POST['armazenamentoPlataform']);
+                
+                require_once '../classes/Playstation.php';
+                $stmt = new Playstation;
+                $stmt->getConexao();
+                $fk_id = $stmt->cadastrarRequisitosPlay($osMultiplataforma,$armazenamentoMulti);
+                move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_playstation'.$nome_img);
+                $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+                header("location: admin.php");
+                
     
+            }elseif($selectPlataforma == "xbox"){
+                $osMultiplataforma = addslashes($_POST['osPlataform']);
+                $armazenamentoMulti = addslashes($_POST['armazenamentoPlataform']);
+                require_once '../classes/Xbox.php';
+                $stmt = new Xbox;
+                $stmt->getConexao();
+                $fk_id = $stmt->cadastrarRequisitosXbox($osMultiplataforma,$armazenamentoMulti);
+                move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_xbox/'.$nome_img);
+                $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+                header('Location:admin.php');
+                
+                
+            }elseif($selectPlataforma == "pc"){
+                $osMultiplataforma = addslashes($_POST['osPlataform']);
+                $armazenamentoMulti = addslashes($_POST['armazenamentoPlataform']);
+                $placa_videoMulti = addslashes($_POST['placaPlataform']);
+                $memoriaMulti = addslashes($_POST['memoriaPlataform']);
+                $armazenamentoMulti = addslashes($_POST['armazenamentoPlataform']);
+                require_once '../classes/Pc.php';
+                $stmt = new Pc;
+                $stmt->getConexao();
+                $fk_id = $stmt->cadastrarRequisitosPc($osMultiplataforma,$processadorMulti,$placa_videoMulti,$memoriaMulti,$armazenamentoMulti);
+                move_uploaded_file($_FILES['img']['tmp_name'],'../Midia/img/img_pc/'.$nome_img);
+                $stmt->cadastrarJogo($nome,$descricao,$nome_img,$genero, $fk_id);
+                header("location: admin.php");
+                
+            }
+        }
+    
+    }
 }
+        
+
 
 
 
 //array com esxtensões permitidas
 // $_UP['exntensões'] = array('png','jpg','jpeg')
-?>
-
 ?>

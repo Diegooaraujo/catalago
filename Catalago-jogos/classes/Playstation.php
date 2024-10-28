@@ -33,12 +33,9 @@ public function getConexao()
     }
     
 }
-    public function cadastrarRequisitosPc($os,$processador,$placa_video,$memoria,$armazenamento){
-    $stmt = $this->instancia->prepare('INSERT INTO requisitos_recomendados_pc (OS,processador,placa_video,memoria,armazenamento) VALUES (:os,:processador,:placa_video,:memoria,:armazenamento)');
+    public function cadastrarRequisitosPlay($os,$armazenamento){
+    $stmt = $this->instancia->prepare('INSERT INTO requisitos_recomendados (OS,armazenamento) VALUES (:os,:armazenamento)');
     $stmt->bindValue(':os',$os);
-    $stmt->bindValue(':processador',$processador);
-    $stmt->bindValue(':placa_video',$placa_video);
-    $stmt->bindValue(':memoria',$memoria);
     $stmt->bindValue(':armazenamento',$armazenamento);
     $stmt->execute();
     $fk_id = $this->instancia->lastInsertId();
@@ -46,7 +43,7 @@ public function getConexao()
 
 }
 public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
-    $stmt = $this->instancia->prepare("INSERT INTO pc (nome, descricao,nome_imagem,fk_id,genero ) values (:nome, :descr, :img,:fk_id,:genero)");
+    $stmt = $this->instancia->prepare("INSERT INTO playstation (nome, descricao,nome_imagem,fk_id,genero ) values (:nome, :descr, :img,:fk_id,:genero)");
     $stmt->bindValue(':nome',$nome);
     $stmt->bindValue(':descr',$descr);
     $stmt->bindValue(':img',$img);

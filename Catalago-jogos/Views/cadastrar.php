@@ -63,6 +63,7 @@
             <label id="forArmazenamento" for="armazenamento">Armazenamento:</label>
             <input type="text" name="armazenamento" id="armazenamento">
 
+            
             <h2>multiplataforma</h2>
             <select name="plataforma" id="plataforma">
                 <option value="sim" selected>Sim</option>
@@ -90,7 +91,8 @@
 
             <label id="forArmazenamentoPlataform" for="armazenamentoPlataform">Armazenamento:</label>
             <input type="text" name="armazenamentoPlataform" id="armazenamentoPlataform">
-            <h2>Adicionar plataforma</h2>
+            
+            <h2 class="titleAdicionar">Adicionar plataforma</h2>
             <select name="plataforma2" id="plataforma2">
                 <option value="sim" selected>Sim</option>
                 <option value="nao" >Não</option>
@@ -115,6 +117,33 @@
 
             <label id="forArmazenamentoPlataform2" for="armazenamentoPlataform2">Armazenamento:</label>
             <input type="text" name="armazenamentoPlataform2" id="armazenamentoPlataform2">
+
+
+            <h2 class="titleAdicionar3">Adicionar plataforma</h2>
+            <select name="plataforma3" id="plataforma3">
+                <option value="sim" selected>Sim</option>
+                <option value="nao" >Não</option>
+            </select> 
+            <select name="selectPlataforma3" id="selectPlataforma3">
+                <option value="playstation">Playstation</option>
+                <option value="pc" >PC</option>
+                <option value="nitendo" selected>Nitendo</option>
+                <option value="xbox">Xbox</option>
+            </select> 
+            <label id="forOsPlataform3" for="osPlataform3">Os:</label>
+            <input type="text" name="osPlataform3" id="osPlataform3">
+
+            <label id="forProcessadorPlataform3" for="processadorPlataform3">Processador:</label>
+            <input type="text" name="processadorPlataform3" id="processadorPlataform3">
+
+            <label id="forPlacaPlataform3" for="placaPlataform3">Placa de video:</label>
+            <input type="text" name="placaPlataform3" id="placaPlataform3">
+
+            <label id="forMemoriaPlataform3" for="memoriaPlataform3">Memoria:</label>
+            <input type="text" name="memoriaPlataform3" id="memoriaPlataform3">
+
+            <label id="forArmazenamentoPlataform3" for="armazenamentoPlataform3">Armazenamento:</label>
+            <input type="text" name="armazenamentoPlataform3" id="armazenamentoPlataform3">
 
 
 
