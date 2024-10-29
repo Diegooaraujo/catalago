@@ -1,11 +1,24 @@
+function pesquisa(){
+    const processador = document.querySelector("#processador")
+    const placa = document.querySelector("#placa")
+    const memoria = document.querySelector("#memoria")
+    const armazenamento = document.querySelector("#armazenamento")
+    const gereno = document.querySelector("#genero")
+    const valor = formatrString(genero.value);
+    const buttonForm = document.querySelector("#botao-form")
+    const form = document.querySelector(".filtroForm")
+    
+    console.log(form)
+    form.addEventListener("submit",(e)=>{
+        
+        e.preventDefault()
+        const valorPlaca = placa.value
+        console.log(valorPlaca)
+        
+    })
 
 
-
- function pesquisa(){
-    const no_result = document.querySelector("#no_result");
-    const searchInput = document.querySelector("#serch")
-    const valor = formatrString(searchInput.value);
-
+    console.log(processador.value)
     let items = document.querySelectorAll(".items .item")
       
     let resultados = false;
@@ -61,6 +74,3 @@ fetch("../pc.json").then(res=>res.json()).then((json)=>{
 
     });
 })
-
-
-

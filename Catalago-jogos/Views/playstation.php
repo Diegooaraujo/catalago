@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../Formatacao/css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../scripts/cards.js" defer ></script>
-    <script src="../scripts/filtrar.js"></script>
+    
     
     
 </head>
@@ -48,29 +48,7 @@
                 </ul>
 
             </nav>
-            <div class="filter">
-                <div class="input">
-                    <div class='input-icon'>
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <input type=" text" id="serch" class="input-field" placeholder="pesquisar" onkeyup="pesquisa()">
-                </div>
-                <ul class="items">
-                    <!-- <li class="item">
-                        <div class="item-img">
-                            <img src="../Midia/img/img-xboxVALORANT_Logo_V.png" alt="">
-                        </div>
-                        <div class="item-content">
-                            <h2 class="item-tile">valorant</h2>
-                            <p class="item-desc">descrição</p>
-                        </div>
-                    </li> -->
-
-                    <li id="no_result"><p>Nenhum resultado encontrado.</p></li>
-                </ul>
-                
-               
-            </div>
+           
             <div class="nav-icon">
                 <img id="list" src="../Midia/img/icon/list.svg"  alt="">
             </div>
@@ -81,7 +59,7 @@
     <!--barra lateral-->
     <div id="menuOculto" class="menuOculto">
         <span class="btnFechar" >&times;</span>
-        <form action="" method="POST">
+        <form action="filtro.php" method="POST">
 
             <h2>Filtrar Por:</h2>
 
