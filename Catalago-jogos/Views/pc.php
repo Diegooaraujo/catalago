@@ -127,8 +127,47 @@
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-            <button id='botao-form' name="enviar">Enviar </button>
+            <button type="submit" id='botao-form' name="enviar" > Enviar</button>
         </form>
+
+        <div class="conteinerFiltro">
+            <ul class="results">
+               
+                <!-- <li class="result">
+                    <div class="resultImg">
+                        <img src="../Midia/img-payday.jpg" alt="">
+                    </div>
+                    <div class="resultContent">
+                        <h2 class="resultTitle">
+                            pay-day
+                        </h2>
+                        <p class="resultDesc">requisitos</p>
+                    </div>
+                </li>
+                <li class="result">
+                    <div class="resultImg">
+                        <img src="../Midia/img-payday.jpg" alt="">
+                    </div>
+                    <div class="resultContent">
+                        <h2 class="resultTitle">
+                            pay-day
+                        </h2>
+                        <p class="resultDesc"> requisitos</p>
+                    </div>
+                </li>
+                <li class="result">
+                    <div class="resultImg">
+                        <img src="../Midia/img-payday.jpg" alt="">
+                    </div>
+                    <div class="resultContent">
+                        <h2 class="resultTitle">
+                            pay-day
+                        </h2>
+                        <p class="resultDesc">i3 128gb</p>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
         
     </div>
 

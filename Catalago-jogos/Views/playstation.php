@@ -59,7 +59,7 @@
     <!--barra lateral-->
     <div id="menuOculto" class="menuOculto">
         <span class="btnFechar" >&times;</span>
-        <form action="filtro.php" method="POST">
+        <form >
 
             <h2>Filtrar Por:</h2>
 

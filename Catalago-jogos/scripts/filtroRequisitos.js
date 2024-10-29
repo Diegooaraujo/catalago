@@ -1,76 +1,76 @@
-function pesquisa(){
-    const processador = document.querySelector("#processador")
-    const placa = document.querySelector("#placa")
-    const memoria = document.querySelector("#memoria")
-    const armazenamento = document.querySelector("#armazenamento")
-    const gereno = document.querySelector("#genero")
-    const valor = formatrString(genero.value);
-    const buttonForm = document.querySelector("#botao-form")
-    const form = document.querySelector(".filtroForm")
+const form = document.querySelector(".filtroForm")
+
+const processador = document.querySelector("#processador")
+const placa = document.querySelector("#placa")
+const memoria = document.querySelector("#memoria")
+const armazenamento = document.querySelector("#armazenamento")
+const gereno = document.querySelector("#genero")
+
+const buttonForm = document.querySelector("#botao-form")
+const ul = document.querySelector(".results")
+
+let resul = false;
+let clicou = false
+
+if(clicou){
+    ul.style.display = "flex"
+
+}else{
+    ul.style.display ="none"
+}
+
+form.addEventListener("submit", (e) => {
+    let clicou = true
+    e.preventDefault()
+     ul.style.display = "flex"
+    const valorProcessador = processador.value
+    const valorPlaca = placa.value
+    const valorArmazenamento = armazenamento.value
+    const valorGenero = formatrString(genero.value)
     
-    console.log(form)
-    form.addEventListener("submit",(e)=>{
+    const results = document.querySelectorAll(".results .result")
+
+    results.forEach(result=>{
+        const resultDesc = result.querySelector(".resultDesc").textContent
+
+     
         
-        e.preventDefault()
-        const valorPlaca = placa.value
-        console.log(valorPlaca)
-        
+        if(formatrString(resultDesc).indexOf(valorProcessador)!== -1 || formatrString(resultDesc).indexOf(valorArmazenamento)!== -1 ||formatrString(resultDesc).indexOf(valorPlaca)!== -1 ){
+            result.style.display = 'flex'
+            resul=true
+        }else{
+            result.style.display = 'none'
+            resul=false
+            
+        }
     })
 
-
-    console.log(processador.value)
-    let items = document.querySelectorAll(".items .item")
-      
-    let resultados = false;
-    const ul = document.querySelector(".items")
-
-    if(valor !== ''){
-    
-        ul.style.display = "flex"
-        items.forEach(item=>{
-            const itemTitle = item.querySelector(".item-title").textContent
-            if(formatrString(itemTitle).indexOf(valor)!== -1) {
-                item.style.display = 'flex'
-                resultados=true
-            }else{
-                item.style.display = 'none'
-                resultados=false
-            }
-        })
-        // if(resultados){
-        //     no_result.style.display = "none"
-        // }else{
-        //     no_result.style.display = "flex"
-        // }
-    }else{
-        ul.style.display = 'none'
-    }
-}
+})
 
 function formatrString(value){
     return value.toLowerCase().trim();
 
 }
-
-
 fetch("../pc.json").then(res=>res.json()).then((json)=>{
-    const ul = document.querySelector(".items")
+    const lista = document.querySelector(".results")
 
     json.forEach((item) => {
         const li = document.createElement("li");
         li.innerHTML = `
            
-                <div class="item-img">
+                <div class="resultImg">
                     <img class = "${item.fk_id}" src="../Midia/img/img_pc/${item.nome_imagem}" alt="">
                 </div>
-                <div class="item-content">
-                    <h2 class="item-title">${item.nome}</h2>
-                    <p class="item-desc">descrição</p>
+                <div class="resultContent">
+                    <h2 class="resultTitle">${item.nome}</h2>
+                    <p class="resultDesc"> Processador:${item.processador }, Placa de video: ${ item.placa_video}, Memoria: ${item.memoria}, Armazenamento:${item.armazenamento}</p>
                 </div>
            
         `;
-        li.classList.add("item")
-        ul.appendChild(li);
+        li.classList.add("result")
+        lista.appendChild(li);
 
     });
 })
+
+
