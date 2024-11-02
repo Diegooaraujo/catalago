@@ -84,7 +84,7 @@ class Conexao
 
     // }
 
-    public function delete($id, $fk_id, $tabela)
+    public function delete( $fk_id, $tabela)
     {
         if ($tabela == 'pc') {
             $stmt = $this->instancia->prepare('SELECT nome_imagem FROM pc WHERE fk_id = :id');

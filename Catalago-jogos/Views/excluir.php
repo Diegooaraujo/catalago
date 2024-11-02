@@ -7,7 +7,7 @@
     if($id){
         $con = new Conexao;
         $con->getConexao();
-        $con->delete($id,$fk_id,$tabela);
+        $con->delete($fk_id,$tabela);
         header("location: admin.php");
     }else{
         header("location: admin.php");
