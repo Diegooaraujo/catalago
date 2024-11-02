@@ -68,7 +68,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>"&tabela=playstation>[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk_id=<?=$jogo['fk_id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>"&tabela=playstation>[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk-id=<?= $jogo['fk_id']?>&tabela=playstation">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
@@ -92,7 +92,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id'] ?>&tabela=xbox">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id'] ?>&tabela=xbox">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk-id=<?= $jogo['fk_id']?>&tabela=xbox">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
@@ -116,7 +116,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=pc">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=pc">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk-id=<?= $jogo['fk_id']?>&tabela=pc">[excluir]</a></td>
                     </tr>
                     <?php
                 } 
@@ -140,7 +140,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=nitendo">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=nitendo">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk-id=<?= $jogo['fk_id']?>&tabela=nitendo">[excluir]</a></td>
                     </tr>
                     <?php
                 } 

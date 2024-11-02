@@ -52,7 +52,7 @@ public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
         // $stmt->bindValue(':img',$img);
     $stmt->execute();
    
-    exit;
+    
     
 }
 

@@ -51,7 +51,7 @@
             // $stmt->bindValue(':img',$img);
         $stmt->execute();
        
-        exit;
+        
         
     }
     public function editarJogoNitendo($id){
