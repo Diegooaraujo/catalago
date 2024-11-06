@@ -65,12 +65,9 @@ public function updateJogosPlay($id,$nome,$desc,$img){
     $stmt->execute();
     //header('location:admin.php');
     
-} public function updateRequisitosPlay($os,$processador,$placa_video,$memoria,$armazenamento,$id){
+} public function updateRequisitosPlay($os,$armazenamento,$id){
     $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento) Where id = :id');
     $stmt->bindValue(':os',$os);
-    $stmt->bindValue(':processador',$processador);
-    $stmt->bindValue(':placa_video',$placa_video);
-    $stmt->bindValue(':memoria',$memoria);
     $stmt->bindValue(':armazenamento',$armazenamento);
     $stmt->bindValue(':id',$id);
     $stmt->execute();
@@ -80,7 +77,7 @@ public function updateJogosPlay($id,$nome,$desc,$img){
 }
 
 public function editarJogoPlay($id){
-    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM playstation as p join requisitos_recomendados as r ON p.fk_id = r.id where fk_id = :id');
+    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.armazenamento FROM playstation as p join requisitos_recomendados as r ON p.fk_id = r.id where fk_id = :id');
     $stmt->bindValue(':id',$id);
     $stmt->execute();
     if($stmt->rowCount() > 0){

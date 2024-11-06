@@ -67,7 +67,7 @@
     }
 
     public function updateJogosXbox($id,$nome,$desc,$img){
-        $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE id = :id');
+        $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
         $stmt->bindValue(':nome',$nome);
         $stmt->bindValue('descricao',$desc);
         $stmt->bindValue(':img',$img);

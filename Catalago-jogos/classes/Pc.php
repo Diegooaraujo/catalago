@@ -59,18 +59,18 @@ public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
     
 }
 public function editarJogoPc($id){
-    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM pcas p join requisitos_recomendados_pc as r ON p.fk_id = r.id where fk_id = :id');
+    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM pc as p join requisitos_recomendados_pc as r ON p.fk_id = r.id where fk_id = :id');
     $stmt->bindValue(':id',$id);
     $stmt->execute();
     if($stmt->rowCount() > 0){
-        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+        $dados = $stmt->fetch();
         return $dados;
     }else{
         header('location: admin.php');
     }
 }
 public function updateJogosPc($id,$nome,$desc,$img){
-    $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE id = :id');
+    $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
     $stmt->bindValue(':nome',$nome);
     $stmt->bindValue('descricao',$desc);
     $stmt->bindValue(':img',$img);

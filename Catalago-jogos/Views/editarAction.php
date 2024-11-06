@@ -23,27 +23,30 @@
             $stmt = new Playstation;
             $stmt->getConexao();
             $stmt->updateJogosPlay($id,$nome,$descricao,$nome_img);
-            $stmt->updateRequisitosPlay($os,$processador,$placa,$memoria,$armazenamento,$id);
+            $stmt->updateRequisitosPlay($os,$armazenamento,$id);
 
         }
         if( $tabela == "nitendo"){
             $stmt = new Nitendo;
             $stmt->getConexao();
-            $jogo = $stmt->editarJogoNitendo($id);
+            $jogo = $stmt->updateJogosNitendo($id,$nome,$descricao,$nome_img);
+            $stmt->updateRequisitosNitendo($os,$armazenamento,$id);
         }
         if($tabela == 'pc'){
             $stmt = new Pc;
             $stmt->getConexao();
-            $jogo = $stmt->editarJogoPc($id);
+            $jogo = $stmt->updateJogosPc($id,$nome,$descricao,$nome_img);
+            $stmt->updateRequisitosPc($os,$processador,$placa,$memoria,$armazenamento,$id);
         }
         if($tabela == 'xbox'){
             $stmt = new Xbox;
             $stmt->getConexao();
-            $jogo = $stmt->editarJogoXbox($id);
+            $jogo = $stmt->updateJogosXbox($id,$nome,$descricao,$nome_img);
+            $stmt->updateRequisitosXbox($os,$armazenamento,$id);
         }
-        $stmt = new Playstation;
-        $stmt->getConexao();
-        $stmt->updateJogosPlay($id,$nome,$descricao,$nome_img);
+        // $stmt = new Playstation;
+        // $stmt->getConexao();
+        // $stmt->updateJogosPlay($id,$nome,$descricao,$nome_img);
         
         header('location:admin.php');
         exit;

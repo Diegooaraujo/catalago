@@ -7,8 +7,8 @@
     }
     
     
-    $con = new Conexao();
-    $con->getConexao();
+    // $con = new Conexao();
+    // $con->getConexao();
     $play = new Playstation();
     $play->getConexao();
     $jogosPlay = $play->getJogosPlay();
@@ -68,7 +68,7 @@
                         <td><?=$jogo['id']?></td>
                         <td><?=$jogo['nome']?></td>
                         <td><?=$jogo['descricao']?></td>
-                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>"&tabela=playstation>[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk-id=<?= $jogo['fk_id']?>&tabela=playstation">[excluir]</a></td>
+                        <td class="acao"><a class="editar" href="editar.php?id=<?=$jogo['fk_id']?>&tabela=playstation">[editar]</a><a class="excluir" href="excluir.php?id=<?=$jogo['id']?>&fk-id=<?= $jogo['fk_id']?>&tabela=playstation">[excluir]</a></td>
                     </tr>
                     <?php
                 } 

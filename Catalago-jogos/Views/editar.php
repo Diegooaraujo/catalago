@@ -6,7 +6,7 @@
 
     
 
-    if($tabela == 'playstation'|| $tabela == "nitendo" || $tabela == 'pc' || $tabela == 'xbox'){
+    if(isset($tabela)){
         if($tabela == "playstation"){
             $stmt = new Playstation;
             $stmt->getConexao();
@@ -61,9 +61,21 @@
     <div class="desc">
         <h3>requisitos:</h3>
         <p>Os: <?=$jogo['OS']?></p>
-        <p>processador: <?=$jogo['processador']?></p>
-        <p>Placa de Video: <?=$jogo['placa_video']?></p>
-        <p>Memoria: <?=$jogo['memoria']?></p>
+        
+        <?php  
+            if(isset($jogo['processador']) ){
+                echo('<p>processador:'. $jogo['processador'].'</p>');
+            }else{}
+            if(isset($jogo['placa_video'])){
+                echo('<p>Placa de Video:'. $jogo['placa_video'].'</p>');
+            }else{};
+            if(isset($jogo['memoria'])){
+                echo('<p>Memoria:'. $jogo['memoria'].'</p>');
+            }else{};
+
+        
+        ?>
+
         <p>Armazenamento: <?=$jogo['armazenamento']?></p>
     </div>
 
@@ -73,34 +85,51 @@
         <input type="hidden" name="tabela" value="<?=$tabela?>">
 
         <label for="nome">
-            Nome:<input type="text" name="nome" id="nome">
+            Nome:<input type="text" name="nome" id="nome" value="<?=$jogo['nome']?>">
         </label>
 
         <label for="imagem" id="imagem-label">
-            imagem: <input type="file" name="imagem" id="imagem">
+            imagem: <input type="file" name="imagem" id="imagem" value="<?=$jogo['nome_imagem']?>">
         </label>
 
         <label for="textarea"></br>Descrição: </label>
-        <textarea id='textarea' name="descricao" id=""></textarea>
+        <textarea id='textarea' name="descricao" value="<?=$jogo['descricao']?>" ></textarea>
 
         <label for="genero">Genero:</label>
-        <input type="text" name="genero" id="genero">
+        <input type="text" name="genero" id="genero" value="<?=$jogo['genero']?>">
 
         <h2>Requisitos:</h2>
-    <label for="os">Os:</label>
-        <input type="text" name="os" id="os">
+       
+            
+               
+        
+       
+        <label for="os">Os:</label>
+        <input type="text" name="os" id="os" value = <?=$jogo['OS']?>>
+        
+         <?php  
+            if($tabela == 'pc' ){
+                echo('<label for="processador">processador:</label>
+                    <input type="text" name="processador" id="processador" value='.$jogo['processador'].'>');
 
-        <label for="processador">Processador:</label>
-        <input type="text" name="processador" id="processador">
+                echo('<label for="placa">Placa de Video:</label>
+                    <input type="text" name="placa" id="placa" value='.$jogo['placa_video'].'>');
+                
+                echo('<label for="memoria">Memoria:</label>
+                    <input type="text" name="memoria" id="memoria" value='.$jogo['memoria'].'>');
 
-        <label for="placa">Placa de video:</label>
+            }else{} ?>
+        <!-- <label for="processador">Processador:</label>
+        <input type="text" name="processador" id="processador"> -->
+
+        <!-- <label for="placa">Placa de video:</label>
         <input type="text" name="placa" id="placa">
 
         <label for="memoria">Memoria:</label>
-        <input type="text" name="memoria" id="memoria">
+        <input type="text" name="memoria" id="memoria"> -->
 
         <label for="armazenamento">Armazenamento:</label>
-        <input type="text" name="armazenamento" id="armazenamento">
+        <input type="text" name="armazenamento" id="armazenamento" value=<?= $jogo['armazenamento']?>>
         <button>atualizar</button>
         
     </form>
