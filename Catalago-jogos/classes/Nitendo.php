@@ -65,26 +65,76 @@
             header('location: admin.php');
         }
     }
-    public function updateJogosNitendo($id,$nome,$desc,$img){
-        $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
-        $stmt->bindValue(':nome',$nome);
-        $stmt->bindValue('descricao',$desc);
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
+    public function updateJogosNitendo($id,$nome,$desc,$img,$genero){
+        // $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
+        if($nome == ''&& $desc == '' && $genero == ''){
+            header('location: admin.php');
+        }
+        else if($desc != "" && $nome==''  && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE nitendo SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($genero != '' && $nome =='' && $desc == ""){
+            $stmt = $this->instancia->prepare('UPDATE nitendo SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+            
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($nome !='' && $desc == '' && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($nome !='' && $desc != '' && $genero !=''){
+            $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        // $stmt->bindValue(':nome',$nome);
+        // $stmt->bindValue('descricao',$desc);
+        // $stmt->bindValue(':img',$img);
+        // $stmt->bindValue(':id',$id);
+        // $stmt->execute();
         //header('location:admin.php');
         
     } public function updateRequisitosNitendo($os,$armazenamento,$id){
-        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_nitendo SET OS =:os, armazenamento=:armazenamento) Where id = :id');
-        $stmt->bindValue(':os',$os);
+
+        if($os == "" && $armazenamento == ''){
+            header('location: admin.php');
+        }else if($os != '' && $armazenamento != ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_nitendo SET OS =:os, armazenamento=:armazenamento Where id = :id');
+            $stmt->bindValue(':os',$os);
+            $stmt->bindValue(':armazenamento',$armazenamento);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+           
+        }else if($os == '' && $armazenamento != ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_nitendo SET armazenamento=:armazenamento Where id = :id');
+            $stmt->bindValue(':armazenamento',$armazenamento);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }else if($os != '' && $armazenamento == ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_nitendo SET OS =:os,  Where id = :id');
+            $stmt->bindValue(':os',$os);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+       
         // $stmt->bindValue(':processador',$processador);
         // $stmt->bindValue(':placa_video',$placa_video);
         // $stmt->bindValue(':memoria',$memoria);
-        $stmt->bindValue(':armazenamento',$armazenamento);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
-        $fk_id = $this->instancia->lastInsertId();
-        return $fk_id;
+       
     
     }
 

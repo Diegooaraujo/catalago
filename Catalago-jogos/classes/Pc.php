@@ -69,26 +69,129 @@ public function editarJogoPc($id){
         header('location: admin.php');
     }
 }
-public function updateJogosPc($id,$nome,$desc,$img){
-    $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
-    $stmt->bindValue(':nome',$nome);
-    $stmt->bindValue('descricao',$desc);
-    $stmt->bindValue(':img',$img);
-    $stmt->bindValue(':id',$id);
-    $stmt->execute();
+public function updateJogosPc($id,$nome,$desc,$img,$genero){
+    if($nome == ''&& $desc == '' && $genero == ''){
+        header('location: admin.php');
+    }else if($nome == '' && $desc !='' && $genero !=''){
+        $stmt = $this->instancia->prepare('UPDATE pc SET descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+        $stmt->bindValue('descricao',$desc);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }else if($desc != "" && $nome==''  && $genero ==''){
+        $stmt = $this->instancia->prepare('UPDATE pc SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
+        $stmt->bindValue('descricao',$desc);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }else if($genero != '' && $nome =='' && $desc == ""){
+        $stmt = $this->instancia->prepare('UPDATE pc SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+        
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+    else if($nome !='' && $desc == '' && $genero ==''){
+        $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
+        $stmt->bindValue(':nome',$nome);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+
+    else if($nome !='' && $desc != '' && $genero !=''){
+        $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+        $stmt->bindValue(':nome',$nome);
+        $stmt->bindValue('descricao',$desc);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+
+
+    // $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
+    
     //header('location:admin.php');
     
 } public function updateRequisitosPc($os,$processador,$placa_video,$memoria,$armazenamento,$id){
-    $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento) Where id = :id');
-    $stmt->bindValue(':os',$os);
-    $stmt->bindValue(':processador',$processador);
-    $stmt->bindValue(':placa_video',$placa_video);
-    $stmt->bindValue(':memoria',$memoria);
-    $stmt->bindValue(':armazenamento',$armazenamento);
-    $stmt->bindValue(':id',$id);
-    $stmt->execute();
-    $fk_id = $this->instancia->lastInsertId();
-    return $fk_id;
+    if($os == "" && $processador !=''&& $placa_video != '' && $memoria != '' && $armazenamento != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET  processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento WHERE id = :id');
+       
+        $stmt->bindValue(':processador',$processador);
+        $stmt->bindValue(':placa_video',$placa_video);
+        $stmt->bindValue(':memoria',$memoria);
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+
+    }else if($processador == ""&& $os !='' && $placa_video != '' && $memoria != '' && $armazenamento != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento WHERE id = :id');
+
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':placa_video',$placa_video);
+        $stmt->bindValue(':memoria',$memoria);
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+
+    }
+    else if($placa_video == "" && $memoria != '' && $armazenamento != ''&& $processador != ""&& $os != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os, processador =:processador ,memoria = :memoria,armazenamento=:armazenamento WHERE id = :id');
+
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':processador',$processador);
+        $stmt->bindValue(':memoria',$memoria);
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+
+    } else if($memoria == "" && $placa_video != '' && $armazenamento != ''&& $processador != ""&& $os != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os, processador =:processador ,placa_video =:placa_video,armazenamento=:armazenamento WHERE id = :id');
+
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':processador',$processador);
+        $stmt->bindValue(':placa_video',$placa_video);
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+
+    }else if($armazenamento == "" && $placa_video != '' && $memoria != ''&& $processador != ""&& $os != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria WHERE id = :id');
+        
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':processador',$processador);
+        $stmt->bindValue(':placa_video',$placa_video);
+        $stmt->bindValue(':memoria',$memoria);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }else if($armazenamento == "" && $placa_video == '' && $memoria == ''&& $processador == ""&& $os == ''){
+        header('location: admin.php');
+    }
+    else if($armazenamento != "" && $placa_video != '' && $memoria != ''&& $processador != ""&& $os != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento WHERE id = :id');
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':processador',$processador);
+        $stmt->bindValue(':placa_video',$placa_video);
+        $stmt->bindValue(':memoria',$memoria);
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+        }
+    
+
+    // $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento WHERE id = :id');
+    // $stmt->bindValue(':os',$os);
+    // $stmt->bindValue(':processador',$processador);
+    // $stmt->bindValue(':placa_video',$placa_video);
+    // $stmt->bindValue(':memoria',$memoria);
+    // $stmt->bindValue(':armazenamento',$armazenamento);
+    // $stmt->bindValue(':id',$id);
+    // $stmt->execute();
+    // $fk_id = $this->instancia->lastInsertId();
+    // return $fk_id;
 
 }
 

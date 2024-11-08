@@ -56,23 +56,75 @@ public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
     
 }
 
-public function updateJogosPlay($id,$nome,$desc,$img){
-    $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE id = :id');
-    $stmt->bindValue(':nome',$nome);
-    $stmt->bindValue('descricao',$desc);
-    $stmt->bindValue(':img',$img);
-    $stmt->bindValue(':id',$id);
-    $stmt->execute();
+public function updateJogosPlay($id,$nome,$desc,$img,$genero){
+    // $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+    if($nome == ''&& $desc == '' && $genero == ''){
+        header('location: admin.php');
+    }
+    else if($desc != "" && $nome==''  && $genero ==''){
+        $stmt = $this->instancia->prepare('UPDATE playstation SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
+        $stmt->bindValue('descricao',$desc);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+    else if($genero != '' && $nome =='' && $desc == ""){
+        $stmt = $this->instancia->prepare('UPDATE playstation SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+        
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+    else if($nome !='' && $desc == '' && $genero ==''){
+        $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
+        $stmt->bindValue(':nome',$nome);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+    else if($nome !='' && $desc != '' && $genero !=''){
+        $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+        $stmt->bindValue(':nome',$nome);
+        $stmt->bindValue('descricao',$desc);
+        $stmt->bindValue(':img',$img);
+        $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+
+
+   
     //header('location:admin.php');
     
 } public function updateRequisitosPlay($os,$armazenamento,$id){
-    $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento) Where id = :id');
-    $stmt->bindValue(':os',$os);
-    $stmt->bindValue(':armazenamento',$armazenamento);
-    $stmt->bindValue(':id',$id);
-    $stmt->execute();
-    $fk_id = $this->instancia->lastInsertId();
-    return $fk_id;
+    if($os == "" && $armazenamento == ''){
+        header('location: admin.php');
+    }else if($os != '' && $armazenamento != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados SET OS =:os, armazenamento=:armazenamento Where id = :id');
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+       
+    }else if($os == '' && $armazenamento != ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados SET armazenamento=:armazenamento Where id = :id');
+        $stmt->bindValue(':armazenamento',$armazenamento);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }else if($os != '' && $armazenamento == ''){
+        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados SET OS =:os,  Where id = :id');
+        $stmt->bindValue(':os',$os);
+        $stmt->bindValue(':id',$id);
+        $stmt->execute();
+    }
+    // $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados SET OS =:os, processador =:processador ,placa_video =:placa_video,memoria = :memoria,armazenamento=:armazenamento Where id = :id');
+    // $stmt->bindValue(':os',$os);
+    // $stmt->bindValue(':armazenamento',$armazenamento);
+    // $stmt->bindValue(':id',$id);
+    // $stmt->execute();
+    // $fk_id = $this->instancia->lastInsertId();
+    // return $fk_id;
 
 }
 

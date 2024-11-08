@@ -27,8 +27,6 @@
             $stmt->getConexao();
             $jogo = $stmt->editarJogoXbox($id);
         }
-       
-        
 
     }
     else{
@@ -43,6 +41,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>editar jogo</title>
     <link rel="stylesheet" href="../Formatacao/css/editar.css">
+    
 </head>
 <body>
 <header>
@@ -81,7 +80,7 @@
 
     <form method="POST" action="editarAction.php" enctype="multipart/form-data" >
 
-        <input type="hidden" name="id" value="<?=$jogo['fk_id']?>">
+        <input type="hidden" id='fk_id' name="id" value="<?=$jogo['fk_id']?>">
         <input type="hidden" name="tabela" value="<?=$tabela?>">
 
         <label for="nome">
@@ -93,30 +92,26 @@
         </label>
 
         <label for="textarea"></br>Descrição: </label>
-        <textarea id='textarea' name="descricao" value="<?=$jogo['descricao']?>" ></textarea>
+        <textarea id='textarea' name="descricao" ></textarea>
 
         <label for="genero">Genero:</label>
-        <input type="text" name="genero" id="genero" value="<?=$jogo['genero']?>">
+        <input type="text" name="genero" id="genero" >
 
         <h2>Requisitos:</h2>
        
-            
-               
-        
-       
         <label for="os">Os:</label>
-        <input type="text" name="os" id="os" value = <?=$jogo['OS']?>>
+        <input type="text" name="os" id="os" >
         
          <?php  
             if($tabela == 'pc' ){
                 echo('<label for="processador">processador:</label>
-                    <input type="text" name="processador" id="processador" value='.$jogo['processador'].'>');
+                    <input type="text" name="processador" id="processador" >');
 
                 echo('<label for="placa">Placa de Video:</label>
-                    <input type="text" name="placa" id="placa" value='.$jogo['placa_video'].'>');
+                    <input type="text" name="placa" id="placa">');
                 
                 echo('<label for="memoria">Memoria:</label>
-                    <input type="text" name="memoria" id="memoria" value='.$jogo['memoria'].'>');
+                    <input type="text" name="memoria" id="memoria">');
 
             }else{} ?>
         <!-- <label for="processador">Processador:</label>
@@ -129,7 +124,7 @@
         <input type="text" name="memoria" id="memoria"> -->
 
         <label for="armazenamento">Armazenamento:</label>
-        <input type="text" name="armazenamento" id="armazenamento" value=<?= $jogo['armazenamento']?>>
+        <input type="text" name="armazenamento" id="armazenamento" >
         <button>atualizar</button>
         
     </form>

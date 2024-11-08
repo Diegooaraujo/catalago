@@ -66,27 +66,72 @@
         }
     }
 
-    public function updateJogosXbox($id,$nome,$desc,$img){
-        $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
-        $stmt->bindValue(':nome',$nome);
-        $stmt->bindValue('descricao',$desc);
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
+    public function updateJogosXbox($id,$nome,$desc,$img, $genero){
+        // $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+        if($nome == ''&& $desc == '' && $genero == ''){
+            header('location: admin.php');
+        }
+        else if($desc != "" && $nome==''  && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE xbox SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($genero != '' && $nome =='' && $desc == ""){
+            $stmt = $this->instancia->prepare('UPDATE xbox SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+            
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($nome !='' && $desc == '' && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($nome !='' && $desc != '' && $genero !=''){
+            $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        // $stmt->bindValue(':nome',$nome);
+        // $stmt->bindValue('descricao',$desc);
+        // $stmt->bindValue(':img',$img);
+        // $stmt->bindValue(':genero',$genero);
+        // $stmt->bindValue(':id',$id);
+        // $stmt->execute();
         //header('location:admin.php');
         
     } public function updateRequisitosXbox($os,$armazenamento,$id){
-        $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_xbox SET OS =:os,armazenamento=:armazenamento) Where id = :id');
-        $stmt->bindValue(':os',$os);
-        // $stmt->bindValue(':processador',$processador);
-        // $stmt->bindValue(':placa_video',$placa_video);
-        // $stmt->bindValue(':memoria',$memoria);
-         $stmt->bindValue(':armazenamento',$armazenamento);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
-        $fk_id = $this->instancia->lastInsertId();
-        return $fk_id;
-    
+        if($os == "" && $armazenamento == ''){
+            header('location: admin.php');
+        }else if($os != '' && $armazenamento != ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_xbox SET OS =:os, armazenamento=:armazenamento Where id = :id');
+            $stmt->bindValue(':os',$os);
+            $stmt->bindValue(':armazenamento',$armazenamento);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+           
+        }else if($os == '' && $armazenamento != ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_xbox SET armazenamento=:armazenamento Where id = :id');
+            $stmt->bindValue(':armazenamento',$armazenamento);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }else if($os != '' && $armazenamento == ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_xbox SET OS =:os,  Where id = :id');
+            $stmt->bindValue(':os',$os);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+       
     }
 
 }
