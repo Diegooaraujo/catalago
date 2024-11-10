@@ -1,6 +1,9 @@
 <?php
 
 
+    
+   
+
 
 if (isset($_POST['nome'])) {
     $tabela = addslashes($_POST['tabela']);
@@ -241,6 +244,7 @@ if (isset($_POST['nome'])) {
         }
     }
     unlink('../Midia/img/'.$nome_img);
+    header("location: admin.php");
     
 }
 

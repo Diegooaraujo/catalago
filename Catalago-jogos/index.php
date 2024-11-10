@@ -22,9 +22,9 @@
     $nitendo->getConexao();
     $jogosNitendo = $nitendo->getJogosNitendo();
     if(!file_exists('nitendo.json')){
-            $jsonNitendo = fopen("nitendo.json","w+");
-             fwrite($jsonNitendo,json_encode($jogosNitendo));
-             fclose($jsonNitendo);
+        $jsonNitendo = fopen("nitendo.json","w+");
+        fwrite($jsonNitendo,json_encode($jogosNitendo));
+        fclose($jsonNitendo);
     }else{
         $caminhoN ='nitendo.json';
         unlink($caminhoN);
@@ -63,6 +63,7 @@
         fwrite($jsonPc,json_encode($jogosPc));
         fclose($jsonPc);
     }
+
          
     // if(0 == 0){
 
@@ -97,6 +98,7 @@
     <link rel="stylesheet" href="Formatacao/css/index.css">
     <script src="./scripts/cardsIndex.js" defer></script>
     <script src="./scripts/slide.js" defer></script>
+    <script src = "./scripts/filtrarIndex.js" defer></script>
     
     
 
@@ -120,6 +122,29 @@
                 </ul>
 
             </nav>
+            <div class="filter">
+                <div class="input">
+                    <div class='input-icon'>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type=" text" id="serch" class="input-field" placeholder="pesquisar" onkeyup="pesquisa()">
+                </div>
+                <ul class="items">
+                    <!-- <li class="item">
+                        <div class="item-img">
+                            <img src="../Midia/img/img-xboxVALORANT_Logo_V.png" alt="">
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-tile">valorant</h2>
+                            <p class="item-desc">descrição</p>
+                        </div>
+                    </li> -->
+
+                    <li id="no_result"><p>Nenhum resultado encontrado.</p></li>
+                </ul>
+                
+               
+            </div>
             <div class="nav-icon">
                 <img id="list" src="Midia/img/icon/list.svg" alt="">
                 

@@ -512,6 +512,7 @@ footer{
 }
 
 .items{
+    display: flex;
     display: none;
     flex-direction: column;
     gap: 12px;
@@ -524,6 +525,7 @@ footer{
     max-height: 421px;
     overflow-y: auto;
     position: absolute;
+    
 
 }
 .item{

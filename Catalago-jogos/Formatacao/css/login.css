@@ -7,20 +7,49 @@
   font-family: 'poppins', sans-serif;
 }
 
+header{
+  margin-top: 10px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.divHeader{
+  
+  text-align: center;
+  background-color: red;
+  padding: 0 20px;
+  margin :0 auto;
+  border-radius: 20px;
+}
+.divHeader p {
+  font-size: 20px;
+}
+
+
 body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background-color: #fff;
   
 }
+.sucesso{
+  background-color: green;
+  border-radius: 20px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+.sucesso p {
+  font-size: 20px;
+}
 .content{
   
   display: flex;
-  
   align-items: center;
   width: 60%;
   height: 70%;

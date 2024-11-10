@@ -96,6 +96,78 @@ ul a {
     color: black;
     text-decoration: none;
 }
+/*barra de pesquisa*/
+.item-img img{
+    width: 100px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.item-title{
+    font-size: 18px;
+    color: #333;
+
+}
+.title-desc{
+    font-size: 12px;
+    color: #666;
+
+}
+.input{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 2px 16px 2px 8px;
+    border-radius: 40px;
+    gap: 8px;
+    width: 350px;
+}
+.input-icon{
+    min-width:32px ;
+    min-height: 32px;
+    background-color:#6046ff ;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+.input-field{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: #6046ff;
+}
+
+.items{
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    margin-top: 12px;
+    background-color: #fff;
+    border-radius: 24px;
+    padding: 14px;
+    width: 350px;
+    max-height: 421px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 999;
+
+}
+.item{
+    display: flex;
+    gap: 12px;
+}
+#no_result{
+    display: none;
+    text-align: center;
+}
+.hide{
+    display: none;
+}
+/*barra de pesquisa*/
 
 /*slider*/
 section.slider{
@@ -629,3 +701,117 @@ footer p {
     padding: 20px;
     font-size: 25px;
 }
+
+
+/*barra de pesquisa*/
+
+ /*desc jogo*/
+
+ .con-jogo{
+    position: fixed;
+    width: 1600px;
+    height: 500px;
+    background-color: #636363;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px 2px black;
+    display: flex;
+    z-index: 3;
+    
+}
+
+.title-jogo{
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600px;
+    border-bottom: 1px solid black;
+}
+.imagem{
+    min-width: 30%;
+    height: 100%;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.img-jg{
+    width: 100%;
+    height: 100%;
+    border-radius:20px 0px 0px 20px;
+    object-fit: cover;
+}
+
+.fechar{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    margin: 15px;
+    background-color: red;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.fx{
+    cursor: pointer;
+}
+ /* .desc-jg{
+    
+    
+    
+}  */
+.requisitos{
+    border: 1px solid black;
+    padding: 20px;
+    margin-right: 10px;
+   
+    
+    
+    
+    
+}
+.requisitos h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.divRequisitos{
+    border-bottom: 1px solid black;
+    display: flex;
+    margin-bottom: 10px;
+
+    
+}
+.topico{
+    
+    width: 160px;
+
+}
+.divdados{
+    
+    display: flex;
+    align-items: center;
+}
+.divGeneroJogo{
+    display: flex;
+}
+.divGeneroJogo h3{
+    padding-right: 15px;
+}
+.divDescricao{
+    display: flex;
+    margin: 10px 10px 10px 0;
+}
+.titleDescricao{
+    padding-right: 15px;
+}
+
+/* .conteiner-desc{
+    display: flex;
+    max-height: 200px;
+}  */
+
+
+/*card*/

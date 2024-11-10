@@ -42,7 +42,7 @@ function formatrString(value){
 }
 
 
-fetch("../pc.json").then(res=>res.json()).then((json)=>{
+fetch("../nitendo.json").then(res=>res.json()).then((json)=>{
     const ul = document.querySelector(".items")
 
     json.forEach((item) => {
@@ -50,7 +50,7 @@ fetch("../pc.json").then(res=>res.json()).then((json)=>{
         li.innerHTML = `
            
                 <div class="item-img">
-                    <img class = "${item.fk_id}" src="../Midia/img/img_pc/${item.nome_imagem}" alt="">
+                    <img class = "${item.fk_id}" src="../Midia/img/img_nitendo/${item.nome_imagem}" alt="">
                 </div>
                 <div class="item-content">
                     <h2 class="item-title">${item.nome}</h2>
