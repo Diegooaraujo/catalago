@@ -66,7 +66,7 @@ class Conexao
             $dados = $sql->fetch();
             session_start();
             $_SESSION['id_usuario'] = $dados['id'];
-            return true;
+            return $dados['id'];
         } else {
             return false;
         }

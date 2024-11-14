@@ -126,6 +126,7 @@
                 <div class="input">
                     <div class='input-icon'>
                         <i class="fa-solid fa-magnifying-glass"></i>
+                    
                     </div>
                     <input type=" text" id="serch" class="input-field" placeholder="pesquisar" onkeyup="pesquisa()">
                 </div>
@@ -146,8 +147,8 @@
                
             </div>
             <div class="nav-icon">
-                <img id="list" src="Midia/img/icon/list.svg" alt="">
-                
+                <a href="./Views/login.php"> <i id="userIcon" class="fa-regular fa-user" style="color: #000000;"></i></a>
+               
 
             </div>
         </div>

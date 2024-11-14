@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../scripts/cardsXbox.js" defer ></script>
     <script src = "../scripts/filtarXbox.js"></script>
+    <script src="../scripts/filtroRequisitos.js" defer></script>
     
     
 </head>
@@ -80,38 +81,17 @@
     <!--barra lateral-->
     <div id="menuOculto" class="menuOculto">
         <span class="btnFechar" >&times;</span>
-        <form action="" method="POST">
+        <form class="filtroForm">
 
             <h2>Filtrar Por:</h2>
-
-            <label for="processador">Processador:</label>
-            <select name="processador" id="processador">
-                <option value="i3">i3</option>
-                <option value="i5">i5</option>
-                <option value="i7">i7</option>
-                <option value="i9">i9</option>
-                
+            <label for="os">Os:</label>
+            <select name="os" id="os">
+                <option value="ps5">Playstation 5</option>
+                <option value="ps4">Playstation 4</option>
+                <option value="ps3">Playstation 3</option>
+               
             </select>
 
-            <label for="placa">placa de video:</label>
-            <select name="placa" id="placa">
-                <option value="RX580">RX580</option>
-                <option value="RX550XT">RX550XT</option>
-                <option value="RTX4070">RTX4070</option>
-                <option value="RTX3060">RTX3060</option>
-            </select>
-
-            <label for="memoria">memoria ram:</label>
-            <select name="memoria" id="memoria">
-                <option value="4gb">4gb</option>
-                <option value="6gb">6gb</option>
-                <option value="8gb">8gb</option>
-                <option value="10gb">10gb</option>
-                <option value="12gb">12gb</option>
-                <option value="16gb">14gb</option>
-                <option value="18gb">18gb</option>
-                <option value="32gb">32gb</option>
-            </select>
 
             <label for="armazenamento">armazenamento:</label>
             <select name="armazenamento" id="armazenamento">
@@ -125,7 +105,7 @@
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-            <button id='botao-form' name="enviar">Enviar </button>
+            <button id='botao-form' name="enviar" >Enviar </button>
         </form>
         
     </div>

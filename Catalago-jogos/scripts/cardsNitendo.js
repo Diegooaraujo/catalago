@@ -39,20 +39,19 @@ document.addEventListener("click",(e)=>{
     
    
     const conts = e.target.className
-    
- 
+    const conteiner = document.querySelector(".conteiner")
      fetch('../nitendo.json')
      .then(response=>response.json())
      .then(jogos=>{
  
          
- 
-         const conteiner = document.querySelector(".conteiner")
+        
+       
         
          
          jogos.map(jogo=>{
              if(conts == jogo.id){
- 
+                
                  const card = document.createElement("div")
                  card.classList.add("con-jogo")
  
@@ -128,7 +127,8 @@ document.addEventListener("click",(e)=>{
                  const memoria = document.createElement('p')
                  const armazenamento = document.createElement('p')
                  const os = document.createElement('p')
-
+                 const desenvolvedor = document.createElement('p')
+                 desenvolvedor.textContent = jogo.desenvolvedor
                  os.textContent = jogo.OS
                  placa_video.textContent = jogo.placa_video
                  processador.textContent = jogo.processador
@@ -149,32 +149,17 @@ document.addEventListener("click",(e)=>{
 
                  const title_os = document.createElement('strong')
                  title_os.textContent = 'Os: '
+                 const title_desenvolvedor = document.createElement('strong')
+                 title_desenvolvedor.textContent = 'Desenvolvedor: '
                  
                 
                 
                 //title do rquisito
                 //processador
-                const divProcessador = document.createElement('div')
-                divProcessador.classList.add('divRequisitos')
-                const topicoProcessador  = document.createElement('div');
-                topicoProcessador.classList.add('topico')
-                topicoProcessador.appendChild(title_Processador)
-                divProcessador.appendChild(topicoProcessador)
-                const divdados = document.createElement('div')
-                divdados.classList.add('divdados')
-                divdados.appendChild(processador)
-                divProcessador.appendChild(divdados)
-                conteiner_requistos.appendChild(divProcessador)
+               
                 //processador fim
                 //placa de video
-                const topicoPlacaDeVideo = document.createElement('div');
-                topicoPlacaDeVideo.classList.add('topico')
-                topicoPlacaDeVideo.appendChild(title_PlacaDeVideo)
-                const divPlacaDeVideo = document.createElement('div')
-                divPlacaDeVideo.classList.add('divRequisitos')
-                divPlacaDeVideo.appendChild(topicoPlacaDeVideo )
-                divPlacaDeVideo.appendChild(placa_video)
-                conteiner_requistos.appendChild(divPlacaDeVideo)
+               
                 //placa de video fim
                 //armazenamento
                 const topicoArmazenamento = document.createElement('div');
@@ -188,15 +173,7 @@ document.addEventListener("click",(e)=>{
                 conteiner_requistos.appendChild(divArmazenamento)
                 //fimArmazenamento
                 //memoria
-                const topicoMemoria = document.createElement('div');
-                topicoMemoria.classList.add('topico')
-                topicoMemoria.appendChild(title_memoria)
-                const divMemoria = document.createElement('div')
-                divMemoria.classList.add('divRequisitos')
-                conteiner_requistos.appendChild(divMemoria)
-                divMemoria.appendChild(topicoMemoria )
-                divMemoria.appendChild(memoria)
-                conteiner_requistos.appendChild(divMemoria)
+             
                 //memoria fim
                 //sismeta operacional
                 const topicoOs = document.createElement('div');
@@ -209,6 +186,18 @@ document.addEventListener("click",(e)=>{
                 divOs.appendChild(os)
                 conteiner_requistos.appendChild(divOs)
                 //sistema operacional
+                //Desenvolvedor
+            
+                const topicoDesenvolvedor = document.createElement('div');
+                topicoDesenvolvedor.classList.add('topico')
+                topicoDesenvolvedor.appendChild(title_desenvolvedor)
+                const divDesenvolvedor = document.createElement('div')
+                divDesenvolvedor.classList.add('divRequisitos')
+                conteiner_requistos.appendChild(divDesenvolvedor)
+                divDesenvolvedor.appendChild(topicoDesenvolvedor)
+                divDesenvolvedor.appendChild(desenvolvedor)
+                conteiner_requistos.appendChild(divDesenvolvedor)
+                //fim Desenvolvedor
 
                 //fim title requisito
                 

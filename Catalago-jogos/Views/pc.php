@@ -19,7 +19,7 @@
     <title>pixel Palace</title>
     <link rel="stylesheet" href="../Formatacao/css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../scripts/filtroRequisitos.js" defer></script>
+    <script src="../scripts/filtroRequisitosPc.js" defer></script>
     <script src="../scripts/cardsPc.js" defer ></script>
     <script src="../scripts/filtrar.js" defer></script>
     

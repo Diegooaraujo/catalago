@@ -1,5 +1,8 @@
 const form = document.querySelector(".filtroForm")
-const os = document.querySelector("#os")
+
+const processador = document.querySelector("#processador")
+const placa = document.querySelector("#placa")
+const memoria = document.querySelector("#memoria")
 const armazenamento = document.querySelector("#armazenamento")
 const gereno = document.querySelector("#genero")
 
@@ -13,15 +16,15 @@ if(clicou){
     ul.style.display = "flex"
 
 }else{
-    ul.style.display = "none"
+    ul.style.display ="none"
 }
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault()
     let clicou = true
+    e.preventDefault()
      ul.style.display = "flex"
-    const valorOs = os.value
-    
+    const valorProcessador = processador.value
+    const valorPlaca = placa.value
     const valorArmazenamento = armazenamento.value
     const valorGenero = formatrString(genero.value)
     
@@ -32,7 +35,7 @@ form.addEventListener("submit", (e) => {
 
      
         
-        if(formatrString(resultDesc).indexOf(valorOs)!== -1 || formatrString(resultDesc).indexOf(valorArmazenamento)!== -1  ){
+        if(formatrString(resultDesc).indexOf(valorProcessador)!== -1 || formatrString(resultDesc).indexOf(valorArmazenamento)!== -1 ||formatrString(resultDesc).indexOf(valorPlaca)!== -1 ){
             result.style.display = 'flex'
             resul=true
         }else{
@@ -48,7 +51,7 @@ function formatrString(value){
     return value.toLowerCase().trim();
 
 }
-fetch("../playstation.json").then(res=>res.json()).then((json)=>{
+fetch("../pc.json").then(res=>res.json()).then((json)=>{
     const lista = document.querySelector(".results")
 
     json.forEach((item) => {
@@ -60,7 +63,7 @@ fetch("../playstation.json").then(res=>res.json()).then((json)=>{
                 </div>
                 <div class="resultContent">
                     <h2 class="resultTitle">${item.nome}</h2>
-                    <p class="resultDesc"> Os: ${item.os}, Armazenamento:${item.armazenamento}, Genero:${item.genro}</p>
+                    <p class="resultDesc"> Processador:${item.processador }, Placa de video: ${ item.placa_video}, Memoria: ${item.memoria}, Armazenamento:${item.armazenamento}</p>
                 </div>
            
         `;

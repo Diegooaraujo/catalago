@@ -42,15 +42,17 @@ if (isset($_POST['cadastrar'])) {
   $email = addslashes($_POST['loginEmail']);
   $senha = addslashes($_POST['loginSenha']);
   $con->getConexao();
-  if ($con->logar($email, $senha)) {
+  $verificar = $con->logar($email, $senha);
+  if ($verificar == 4) {
     header("location: admin.php");
   } else {
-    echo '
-      <header>
-        <div class="divHeader">
-          <p>Usuario não encontrado!</p>
-        </div>
-      </header>';
+    header("location: ../index.php");
+    // echo '
+    //   <header>
+    //     <div class="divHeader">
+    //       <p>Usuario não encontrado!</p>
+    //     </div>
+    //   </header>';
   }
 }
 ?>

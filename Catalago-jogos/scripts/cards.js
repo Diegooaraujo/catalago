@@ -46,8 +46,10 @@ document.addEventListener("click",(e)=>{
 
 function criarCard(e){
     const conts = e.target.className
-    
- 
+    const plataforma = document.querySelector(".plataforma")
+    const textPlataforma = plataforma.textContent
+    console.log(textPlataforma)
+
     fetch('../playstation.json')
     .then(response=>response.json())
     .then(jogos=>{
@@ -56,7 +58,7 @@ function criarCard(e){
 
         const conteiner = document.querySelector(".conteiner")
        
-        
+    
         jogos.map(jogo=>{
             if(conts == jogo.id){
 
@@ -216,6 +218,21 @@ function criarCard(e){
                divOs.appendChild(os)
                conteiner_requistos.appendChild(divOs)
                //sistema operacional
+               //desenvolvedor
+               const desenvolvedor = document.createElement('p')
+               desenvolvedor.textContent = jogo.desenvolvedor
+               const title_desenvolvedor = document.createElement('strong')
+               title_desenvolvedor.textContent = 'Desenvolvedor: '
+               const topicoDesenvolvedor = document.createElement('div');
+               topicoDesenvolvedor.classList.add('topico')
+               topicoDesenvolvedor.appendChild(title_desenvolvedor)
+               const divDesenvolvedor = document.createElement('div')
+               divDesenvolvedor.classList.add('divRequisitos')
+               conteiner_requistos.appendChild(divDesenvolvedor)
+               divDesenvolvedor.appendChild(topicoDesenvolvedor)
+               divDesenvolvedor.appendChild(desenvolvedor)
+               conteiner_requistos.appendChild(divDesenvolvedor)
+               //desenvolvedor
 
                //fim title requisito
                
