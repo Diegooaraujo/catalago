@@ -38,6 +38,9 @@
 
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
+            
+            <label for="desenvolvedor">Desenvolvedor</label>
+            <input type="text" name ="desenvolvedor" id="desenvolvedor">
 
             <!-- <div class="tabela">
                 <input type="radio" name ="tabela" id='play' value = 'playstation' > playstation
@@ -51,7 +54,9 @@
                 <option value="pc" selected>PC</option>
                 <option value="nitendo">Nitendo</option>
                 <option value="xbox">Xbox</option>
-            </select> 
+            </select>
+
+           
 
             <h2>Requisitos:</h2>
             <label id="forOs" for="os">Os:</label>

@@ -6,7 +6,7 @@ const memoria = document.querySelector("#memoria")
 const armazenamento = document.querySelector("#armazenamento")
 const gereno = document.querySelector("#genero")
 
-const buttonForm = document.querySelector("#botao-form")
+
 const ul = document.querySelector(".results")
 
 let resul = false;
@@ -20,9 +20,9 @@ if(clicou){
 }
 
 form.addEventListener("submit", (e) => {
-    let clicou = true
+    clicou = true
     e.preventDefault()
-     ul.style.display = "flex"
+    ul.style.display = "flex"
     const valorProcessador = processador.value
     const valorPlaca = placa.value
     const valorArmazenamento = armazenamento.value
@@ -34,7 +34,6 @@ form.addEventListener("submit", (e) => {
         const resultDesc = result.querySelector(".resultDesc").textContent
 
      
-        
         if(formatrString(resultDesc).indexOf(valorProcessador)!== -1 || formatrString(resultDesc).indexOf(valorArmazenamento)!== -1 ||formatrString(resultDesc).indexOf(valorPlaca)!== -1 ){
             result.style.display = 'flex'
             resul=true

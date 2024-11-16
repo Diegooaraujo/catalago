@@ -55,7 +55,7 @@
         
     }
     public function editarJogoXbox($id){
-        $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM xbox as p join requisitos_recomendados_xbox as r ON p.fk_id = r.id where fk_id = :id');
+        $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.desenvolvedor,p.id,p.fk_id,r.OS,r.armazenamento FROM xbox as p join requisitos_recomendados_xbox as r ON p.fk_id = r.id where fk_id = :id');
         $stmt->bindValue(':id',$id);
         $stmt->execute();
         if($stmt->rowCount() > 0){
@@ -66,7 +66,7 @@
         }
     }
 
-    public function updateJogosXbox($id,$nome,$desc,$img, $genero){
+    public function updateJogosXbox($id,$nome,$desc,$img, $genero,$desenvolvedor){
         // $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
         if($nome == ''&& $desc == '' && $genero == ''){
             header('location: admin.php');
@@ -94,11 +94,12 @@
             $stmt->execute();
         }
         else if($nome !='' && $desc != '' && $genero !=''){
-            $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+            $stmt = $this->instancia->prepare('UPDATE xbox SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor = :dev WHERE fk_id = :id');
             $stmt->bindValue(':nome',$nome);
             $stmt->bindValue('descricao',$desc);
             $stmt->bindValue(':img',$img);
             $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':dev',$desenvolvedor);
             $stmt->bindValue(':id',$id);
             $stmt->execute();
         }

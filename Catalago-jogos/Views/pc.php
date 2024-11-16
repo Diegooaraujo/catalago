@@ -127,7 +127,7 @@
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-            <button type="submit" id='botao-form' name="enviar" > Enviar</button>
+            <button  id='botao-form' > Enviar</button>
         </form>
 
         <div class="conteinerFiltro">

@@ -158,7 +158,7 @@ ul a {
     max-height: 421px;
     overflow-y: auto;
     position: absolute;
-    z-index: 999;
+    z-index: 1;
 
 }
 .item{
@@ -458,7 +458,7 @@ section.slider{
     border-radius: 20px;
     box-shadow: 2px 2px 8px 2px black;
     display: flex;
-    z-index: 3;
+    z-index: 7;
     
 }
 
@@ -544,6 +544,10 @@ section.slider{
     margin: 10px 10px 10px 0;
 }
 .titleDescricao{
+    padding-right: 15px;
+}
+.divDesenvolvedor{
+    display: flex;
     padding-right: 15px;
 }
 /*fim card*/

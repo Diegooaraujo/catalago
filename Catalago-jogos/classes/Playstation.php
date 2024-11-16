@@ -56,7 +56,7 @@ public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
     
 }
 
-public function updateJogosPlay($id,$nome,$desc,$img,$genero){
+public function updateJogosPlay($id,$nome,$desc,$img,$genero,$desenvolvedor){
     // $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
     if($nome == ''&& $desc == '' && $genero == ''){
         header('location: admin.php');
@@ -84,12 +84,13 @@ public function updateJogosPlay($id,$nome,$desc,$img,$genero){
         $stmt->execute();
     }
     else if($nome !='' && $desc != '' && $genero !=''){
-        $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+        $stmt = $this->instancia->prepare('UPDATE playstation SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor = :dev WHERE fk_id = :id');
         $stmt->bindValue(':nome',$nome);
         $stmt->bindValue('descricao',$desc);
         $stmt->bindValue(':img',$img);
         $stmt->bindValue(':genero',$genero);
         $stmt->bindValue(':id',$id);
+        $stmt->bindValue(':dev',$desenvolvedor);
         $stmt->execute();
     }
 
@@ -129,7 +130,7 @@ public function updateJogosPlay($id,$nome,$desc,$img,$genero){
 }
 
 public function editarJogoPlay($id){
-    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.armazenamento FROM playstation as p join requisitos_recomendados as r ON p.fk_id = r.id where fk_id = :id');
+    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.desenvolvedor,p.id,p.fk_id,r.OS,r.armazenamento FROM playstation as p join requisitos_recomendados as r ON p.fk_id = r.id where fk_id = :id');
     $stmt->bindValue(':id',$id);
     $stmt->execute();
     if($stmt->rowCount() > 0){

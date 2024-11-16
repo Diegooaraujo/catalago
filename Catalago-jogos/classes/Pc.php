@@ -59,7 +59,7 @@ public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
     
 }
 public function editarJogoPc($id){
-    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM pc as p join requisitos_recomendados_pc as r ON p.fk_id = r.id where fk_id = :id');
+    $stmt = $this->instancia->prepare('SELECT p.nome,p.descricao,p.nome_imagem,p.genero,p.desenvolvedor,p.id,p.fk_id,r.OS,r.processador,r.placa_video,r.memoria,r.armazenamento FROM pc as p join requisitos_recomendados_pc as r ON p.fk_id = r.id where fk_id = :id');
     $stmt->bindValue(':id',$id);
     $stmt->execute();
     if($stmt->rowCount() > 0){
@@ -69,7 +69,7 @@ public function editarJogoPc($id){
         header('location: admin.php');
     }
 }
-public function updateJogosPc($id,$nome,$desc,$img,$genero){
+public function updateJogosPc($id,$nome,$desc,$img,$genero,$desenvolvedor){
     if($nome == ''&& $desc == '' && $genero == ''){
         header('location: admin.php');
     }else if($nome == '' && $desc !='' && $genero !=''){
@@ -102,11 +102,12 @@ public function updateJogosPc($id,$nome,$desc,$img,$genero){
     }
 
     else if($nome !='' && $desc != '' && $genero !=''){
-        $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+        $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor =:dev WHERE fk_id = :id');
         $stmt->bindValue(':nome',$nome);
         $stmt->bindValue('descricao',$desc);
         $stmt->bindValue(':img',$img);
         $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':dev',$desenvolvedor);
         $stmt->bindValue(':id',$id);
         $stmt->execute();
     }

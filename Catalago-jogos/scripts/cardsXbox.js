@@ -111,6 +111,17 @@ document.addEventListener("click",(e)=>{
                  divDescricao.appendChild(desc)
                  conteiner_desc.appendChild(divDescricao)
                  //fim descrição
+                 const divDesenvolvedor = document.createElement('div')
+                 divDesenvolvedor.classList.add('divDesenvolvedor')
+                 const titleDesenvolvedor = document.createElement('h3')
+                 titleDesenvolvedor.classList.add('titleDev')
+                 titleDesenvolvedor.textContent='Desenvolvedor: '
+                  const dev = document.createElement('p')
+                  dev.classList.add('dev')
+                  dev.textContent = jogo.desenvolvedor
+                  divDesenvolvedor.appendChild(titleDesenvolvedor)
+                  divDesenvolvedor.appendChild(dev)
+                  conteiner_desc.appendChild(divDesenvolvedor)
 
                 
 
@@ -123,26 +134,17 @@ document.addEventListener("click",(e)=>{
                  conteiner_requistos.appendChild(titulo_requisitos)
 
 
-                 const processador = document.createElement('p')
-                 const placa_video = document.createElement('p')
-                 const memoria = document.createElement('p')
+               
                  const armazenamento = document.createElement('p')
                  const os = document.createElement('p')
 
                  os.textContent = jogo.OS
-                 placa_video.textContent = jogo.placa_video
-                 processador.textContent = jogo.processador
-                 memoria.textContent = jogo.memoria
+                
                  armazenamento.textContent = jogo.armazenamento
                  
-                 const title_Processador = document.createElement('strong')
-                 title_Processador.textContent = 'Processador: '
+            
 
-                 const title_PlacaDeVideo = document.createElement('strong')
-                 title_PlacaDeVideo.textContent = 'Placa De Video: '
-
-                 const title_memoria = document.createElement('strong')
-                 title_memoria.textContent = 'Memoria: '
+              
 
                  const title_armazenamento = document.createElement('strong')
                  title_armazenamento.textContent = 'Armazenamento: '
@@ -153,29 +155,8 @@ document.addEventListener("click",(e)=>{
                 
                 
                 //title do rquisito
-                //processador
-                const divProcessador = document.createElement('div')
-                divProcessador.classList.add('divRequisitos')
-                const topicoProcessador  = document.createElement('div');
-                topicoProcessador.classList.add('topico')
-                topicoProcessador.appendChild(title_Processador)
-                divProcessador.appendChild(topicoProcessador)
-                const divdados = document.createElement('div')
-                divdados.classList.add('divdados')
-                divdados.appendChild(processador)
-                divProcessador.appendChild(divdados)
-                conteiner_requistos.appendChild(divProcessador)
-                //processador fim
-                //placa de video
-                const topicoPlacaDeVideo = document.createElement('div');
-                topicoPlacaDeVideo.classList.add('topico')
-                topicoPlacaDeVideo.appendChild(title_PlacaDeVideo)
-                const divPlacaDeVideo = document.createElement('div')
-                divPlacaDeVideo.classList.add('divRequisitos')
-                divPlacaDeVideo.appendChild(topicoPlacaDeVideo )
-                divPlacaDeVideo.appendChild(placa_video)
-                conteiner_requistos.appendChild(divPlacaDeVideo)
-                //placa de video fim
+              
+               
                 //armazenamento
                 const topicoArmazenamento = document.createElement('div');
                 topicoArmazenamento.classList.add('topico')
@@ -187,17 +168,7 @@ document.addEventListener("click",(e)=>{
                 divArmazenamento.appendChild(armazenamento)
                 conteiner_requistos.appendChild(divArmazenamento)
                 //fimArmazenamento
-                //memoria
-                const topicoMemoria = document.createElement('div');
-                topicoMemoria.classList.add('topico')
-                topicoMemoria.appendChild(title_memoria)
-                const divMemoria = document.createElement('div')
-                divMemoria.classList.add('divRequisitos')
-                conteiner_requistos.appendChild(divMemoria)
-                divMemoria.appendChild(topicoMemoria )
-                divMemoria.appendChild(memoria)
-                conteiner_requistos.appendChild(divMemoria)
-                //memoria fim
+               
                 //sismeta operacional
                 const topicoOs = document.createElement('div');
                 topicoOs.classList.add('topico')
@@ -209,31 +180,9 @@ document.addEventListener("click",(e)=>{
                 divOs.appendChild(os)
                 conteiner_requistos.appendChild(divOs)
                 //sistema operacional
-                //desenvolvedor
-                const desenvolvedor = document.createElement('p')
-                desenvolvedor.textContent = jogo.desenvolvedor
-                  const title_desenvolvedor = document.createElement('strong')
-                 title_desenvolvedor.textContent = 'Desenvolvedor: '
-                const topicoDesenvolvedor = document.createElement('div');
-                topicoDesenvolvedor.classList.add('topico')
-                topicoDesenvolvedor.appendChild(title_desenvolvedor)
-                const divDesenvolvedor = document.createElement('div')
-                divDesenvolvedor.classList.add('divRequisitos')
-                conteiner_requistos.appendChild(divDesenvolvedor)
-                divDesenvolvedor.appendChild(topicoDesenvolvedor)
-                divDesenvolvedor.appendChild(desenvolvedor)
-                conteiner_requistos.appendChild(divDesenvolvedor)
-                //desenvolvedor
+               
                 //fim title requisito
-                
-
-                 
-
-                 
-                 
-                 
-
-                
+        
                 //  divrequisitos.appendChild(processador)
                 //  divrequisitos.appendChild(memoria)
                 //  divrequisitos.appendChild(armazenamento)
@@ -262,11 +211,6 @@ document.addEventListener("click",(e)=>{
                  }
  
                  })
- 
- 
- 
- 
- 
  
              }
  

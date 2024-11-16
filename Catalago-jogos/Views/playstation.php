@@ -36,7 +36,7 @@
             <nav class="nav">
                 <ul>
                     <a href="nitendo.php">
-                        <li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
+                        <li id="switch" class="tabela nitendo"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
                     </a>
                     <a href="playstation.php">
                         <li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li>
@@ -90,9 +90,9 @@
             <h2>Filtrar Por:</h2>
             <label for="os">Os:</label>
             <select name="os" id="os">
-                <option value="ps5">Playstation 5</option>
-                <option value="ps4">Playstation 4</option>
-                <option value="ps3">Playstation 3</option>
+                <option value="playstation 5">Playstation 5</option>
+                <option value="playstation 4">Playstation 4</option>
+                <option value="playstation 3">Playstation 3</option>
                
             </select>
 
@@ -109,8 +109,12 @@
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-            <button id='botao-form' name="enviar" >Enviar </button>
+            <button id='botao-form'>Enviar</button>
         </form>
+        <div class="conteinerFiltro">
+            <ul class="results">
+            </ul>
+        </div>
         
     </div>
 

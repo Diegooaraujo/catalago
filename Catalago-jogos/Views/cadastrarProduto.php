@@ -14,14 +14,11 @@ if (isset($_POST['nome'])) {
     $genero = addslashes($_POST['genero']);
     move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/' . $nome_img);
     $origem = '../Midia/img/'.$nome_img;
+    $desenvolvedor = addslashes($_POST['desenvolvedor']);
     
     
 
-    $os = addslashes($_POST['os']);
-    $processador = addslashes($_POST['processador']);
-    $placa_video = addslashes($_POST['placa']);
-    $memoria = addslashes($_POST['memoria']);
-    $armazenamento = addslashes($_POST['armazenamento']);
+    
     //multiplataforma
     $plataforma = addslashes($_POST['plataforma']);
     $osMultiplataforma = addslashes($_POST['osPlataform']);
@@ -65,6 +62,12 @@ if (isset($_POST['nome'])) {
         $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
     } elseif ($tabela == 'pc') {
         require '../classes/Pc.php';
+        $os = addslashes($_POST['os']);
+        $processador = addslashes($_POST['processador']);
+        $placa_video = addslashes($_POST['placa']);
+        $memoria = addslashes($_POST['memoria']);
+        $armazenamento = addslashes($_POST['armazenamento']);
+
         $stmt = new Pc;
         $stmt->getConexao();
         $fk_id = $stmt->cadastrarRequisitosPc($os, $processador, $placa_video, $memoria, $armazenamento);

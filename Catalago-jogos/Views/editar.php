@@ -57,10 +57,11 @@
 
 <div class="conteiner">
 
-    <h1>Nome : <?= $jogo['nome'] ?></h1>
-    <p>Descrição : <?=$jogo['descricao']?></p>
-    <p>Imagem: <?=$jogo['nome_imagem']?></p>
-    <p>Genero:<?=$jogo['genero']?></p>
+    <h1><span class="textDesc">Nome:<span> <?= $jogo['nome'] ?></h1>
+    <p> <span class="textDesc">Descrição:<span> <?=$jogo['descricao']?></p>
+    <p><span class="textDesc">Imagem:<span> <?=$jogo['nome_imagem']?></p>
+    <p><span class="textDesc">Genero:<span><?=$jogo['genero']?></p>
+    <p><span class="textDesc">Desenvolvedor:<span><?=$jogo['desenvolvedor']?></p>
     <div class="desc">
         <h3>requisitos:</h3>
         <p>Os: <?=$jogo['OS']?></p>
@@ -100,6 +101,10 @@
 
         <label for="genero">Genero:</label>
         <input type="text" name="genero" id="genero" >
+
+        <label for="desenvolvedor">Desenvolvedor:</label>
+        <input type="text" name="desenvolvedor" id="desenvolvedor">
+        
 
         <h2>Requisitos:</h2>
        

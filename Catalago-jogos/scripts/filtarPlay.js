@@ -1,6 +1,5 @@
 
 
-
  function pesquisa(){
     const no_result = document.querySelector("#no_result");
     const searchInput = document.querySelector("#serch")

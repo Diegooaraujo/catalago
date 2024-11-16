@@ -427,6 +427,11 @@
     .titleDescricao{
         padding-right: 15px;
     }
+    .divDesenvolvedor{
+        display: flex;
+        margin: 10px 10px 10px 0;
+    }
+   
     
     /* .conteiner-desc{
         display: flex;
@@ -539,7 +544,9 @@ footer{
 .hide{
     display: none;
 }
-
+.flex{
+    display: flex;
+}
 
 
 

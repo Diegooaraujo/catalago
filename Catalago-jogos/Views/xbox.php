@@ -34,7 +34,7 @@
             <nav class="nav">
                 <ul>
                 <a href="nitendo.php">
-                        <li id="switch"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
+                        <li id="switch" class="tabela nitendo"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
                     </a>
                     <a href="playstation.php">
                         <li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li>

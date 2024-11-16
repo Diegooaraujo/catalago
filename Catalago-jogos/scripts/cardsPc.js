@@ -111,8 +111,19 @@ document.addEventListener("click",(e)=>{
                  divDescricao.appendChild(desc)
                  conteiner_desc.appendChild(divDescricao)
                  //fim descrição
-
-                
+                //desenvolvedor
+                const divDesenvolvedor = document.createElement('div')
+                divDesenvolvedor.classList.add('divDesenvolvedor')
+                const titleDesenvolvedor = document.createElement('h3')
+                titleDesenvolvedor.classList.add('titleDev')
+                titleDesenvolvedor.textContent='Desenvolvedor: '
+                 const dev = document.createElement('p')
+                 dev.classList.add('dev')
+                 dev.textContent = jogo.desenvolvedor
+                 divDesenvolvedor.appendChild(titleDesenvolvedor)
+                 divDesenvolvedor.appendChild(dev)
+                 conteiner_desc.appendChild(divDesenvolvedor)
+                //desenvolvedor
 
                  const conteiner_requistos = document.createElement("div");
                  conteiner_requistos.classList.add("requisitos")
@@ -209,23 +220,7 @@ document.addEventListener("click",(e)=>{
                 divOs.appendChild(os)
                 conteiner_requistos.appendChild(divOs)
                 //sistema operacional
-                //desenvolvedor
-                const desenvolvedor = document.createElement('p')
-                desenvolvedor.textContent = jogo.desenvolvedor
-                  const title_desenvolvedor = document.createElement('strong')
-                 title_desenvolvedor.textContent = 'Desenvolvedor: '
-                const topicoDesenvolvedor = document.createElement('div');
-                topicoDesenvolvedor.classList.add('topico')
-                topicoDesenvolvedor.appendChild(title_desenvolvedor)
-                const divDesenvolvedor = document.createElement('div')
-                divDesenvolvedor.classList.add('divRequisitos')
-                conteiner_requistos.appendChild(divDesenvolvedor)
-                divDesenvolvedor.appendChild(topicoDesenvolvedor)
-                divDesenvolvedor.appendChild(desenvolvedor)
-                conteiner_requistos.appendChild(divDesenvolvedor)
-                //desenvolvedor
-
-                //fim title requisito
+                
                 
 
                  
