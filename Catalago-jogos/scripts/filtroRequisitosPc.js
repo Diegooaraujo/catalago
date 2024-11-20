@@ -6,6 +6,53 @@ const memoria = document.querySelector("#memoria")
 const armazenamento = document.querySelector("#armazenamento")
 const gereno = document.querySelector("#genero")
 
+const requisitosSearch = document.querySelector("#requisitos")
+requisitosSearch.addEventListener('click',(e)=>{
+    const valorRequisitos = requisitosSearch.value;
+    if(valorRequisitos == "nao"){
+        const forProcessador = document.querySelector("#forProcessador")
+        const forPlaca = document.querySelector("#forPlaca")
+        const forMemoria = document.querySelector("#forMemoria")
+        const forArmazenamento = document.querySelector("#forArmazenamento")
+        forProcessador.style.display = "none"
+        forPlaca.style.display = "none"
+        forMemoria.style.display = "none"
+        forArmazenamento.style.display = "none"
+        processador.style.display = "none"
+        placa.style.display = "none"
+        memoria.style.display = "none"
+        armazenamento.style.display = "none"
+    }else{
+        const forProcessador = document.querySelector("#forProcessador")
+        const forPlaca = document.querySelector("#forPlaca")
+        const forMemoria = document.querySelector("#forMemoria")
+        const forArmazenamento = document.querySelector("#forArmazenamento")
+        forProcessador.style.display = "flex"
+        forPlaca.style.display = "flex"
+        forMemoria.style.display = "flex"
+        forArmazenamento.style.display = "flex"
+        processador.style.display = "flex"
+        placa.style.display = "flex"
+        memoria.style.display = "flex"
+        armazenamento.style.display = "flex"
+    }
+    
+})
+generoSearch.addEventListener('click', (e) => {
+    const valorGeneroSearch = generoSearch.value;
+    if (valorGeneroSearch == 'nao') {
+        const forGenero = document.querySelector("#forGenero")
+        gereno.style.display = 'none'
+        forGenero.style.display = 'none'
+    } else {
+        const forGenero = document.querySelector("#forGenero")
+        gereno.style.display = 'flex'
+        forGenero.style.display = 'flex'
+    }
+})
+
+
+
 
 const ul = document.querySelector(".results")
 

@@ -824,3 +824,9 @@ footer p {
 
 
 /*card*/
+
+
+.itemContent{
+    display: flex;
+    flex-direction: column;
+}

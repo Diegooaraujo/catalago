@@ -84,17 +84,23 @@
         <form class="filtroForm">
 
             <h2>Filtrar Por:</h2>
-            <label for="os">Os:</label>
+
+            <label for="requisitos" >Requisitos:</label>
+            <select name="requisitos" id="requisitos">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+
+            <label for="os" id="forOs">Os:</label>
             <select name="os" id="os">
-                <option value="ps5">Xbox One</option>
-                <option value="ps4">Xbox 360</option>
-                <option value="ps3">Xbox S</option>
-                <option value="ps3">Xbox X</option>
+                <option value="nitendo wii">Nintendo Wii </option>
+                <option value="nitendo switch">Nitendo Switch</option>
                
             </select>
 
 
-            <label for="armazenamento">armazenamento:</label>
+            <label for="armazenamento" id="forArmazenamento">armazenamento:</label>
             <select name="armazenamento" id="armazenamento">
                 <option value="128gb">128gb</option>
                 <option value="256gb">256gb</option>
@@ -102,11 +108,16 @@
                 <option value="1tb">1tb</option>
                 <option value="2tb">2tb</option>
             </select>
+            <label for="generoSearch" >Genero:</label>
+            <select name="generoSearch" id="generoSearch">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
 
             <label for="genero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-            <button id='botao-form' name="enviar" >Enviar </button>
+            <button id='botao-form' >Enviar </button>
         </form>
         <div class="conteinerFiltro">
             <ul class="results">
@@ -116,7 +127,7 @@
 
     <!--fim barra lateral-->
 <section id="principal">
-    <h1>Nitendo</h1>
+    <h1>Nintendo</h1>
     <div class='conteiner'>
         <!-- <div class="card">
             <div class="conteiner_img">

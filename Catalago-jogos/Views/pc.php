@@ -85,8 +85,13 @@
         <form class="filtroForm">
 
             <h2>Filtrar Por:</h2>
+            <label for="requisitos" >Requisitos:</label>
+            <select name="requisitos" id="requisitos">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
 
-            <label for="processador">Processador:</label>
+            <label for="processador" id="forProcessador">Processador:</label>
             <select name="processador" id="processador">
                 <option value="i3">i3</option>
                 <option value="i5">i5</option>
@@ -95,7 +100,7 @@
                 
             </select>
 
-            <label for="placa">placa de video:</label>
+            <label for="placa" id='forPlaca'>placa de video:</label>
             <select name="placa" id="placa">
                 <option value="RX580">RX580</option>
                 <option value="RX550XT">RX550XT</option>
@@ -103,7 +108,7 @@
                 <option value="RTX3060">RTX3060</option>
             </select>
 
-            <label for="memoria">memoria ram:</label>
+            <label for="memoria" id="forMemora">memoria ram:</label>
             <select name="memoria" id="memoria">
                 <option value="4gb">4gb</option>
                 <option value="6gb">6gb</option>
@@ -115,13 +120,19 @@
                 <option value="32gb">32gb</option>
             </select>
 
-            <label for="armazenamento">armazenamento:</label>
+            <label for="armazenamento" id="forArmazenamento">armazenamento:</label>
             <select name="armazenamento" id="armazenamento">
                 <option value="128gb">128gb</option>
                 <option value="256gb">256gb</option>
                 <option value="500gb">500gb</option>
                 <option value="1tb">1tb</option>
                 <option value="2tb">2tb</option>
+            </select>
+
+            <label for="generoSearch" >Genero:</label>
+            <select name="generoSearch" id="generoSearch">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
             </select>
 
             <label for="genero">Genero:</label>

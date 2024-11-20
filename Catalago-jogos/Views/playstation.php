@@ -86,9 +86,17 @@
     <div id="menuOculto" class="menuOculto">
         <span class="btnFechar" >&times;</span>
         <form class="filtroForm">
+            
+           
 
             <h2>Filtrar Por:</h2>
-            <label for="os">Os:</label>
+            <label for="requisitos" >Requisitos:</label>
+            <select name="requisitos" id="requisitos">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <label for="os" id="forOs">Os:</label>
             <select name="os" id="os">
                 <option value="playstation 5">Playstation 5</option>
                 <option value="playstation 4">Playstation 4</option>
@@ -97,7 +105,7 @@
             </select>
 
 
-            <label for="armazenamento">armazenamento:</label>
+            <label for="armazenamento" id="forArmazenamento">armazenamento:</label>
             <select name="armazenamento" id="armazenamento">
                 <option value="128gb">128gb</option>
                 <option value="256gb">256gb</option>
@@ -106,7 +114,13 @@
                 <option value="2tb">2tb</option>
             </select>
 
-            <label for="genero">Genero:</label>
+            <label for="generoSearch" >Genero:</label>
+            <select name="generoSearch" id="generoSearch">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <label for="genero" id="forGenero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
             <button id='botao-form'>Enviar</button>

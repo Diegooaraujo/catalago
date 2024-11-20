@@ -15,8 +15,34 @@ $armazenamento = filter_input(INPUT_POST, 'armazenamento');
 $placa = filter_input(INPUT_POST, 'placa');
 $os = filter_input(INPUT_POST, 'os');
 
+if(empty($nome_img)||$nome_img ==''){
 
-move_uploaded_file($_FILES['imagem']['tmp_name'], '../Midia/img/img_' . $tabela . $nome_img);
+}else{
+    if($tabela == "xbox"){
+        move_uploaded_file($_FILES['imagem']['tmp_name'],'../Midia/img/'. $nome_img);
+        $origem = '../Midia/img/'.$nome_img;
+        $destino = '../Midia/img/img_xbox/'.$nome_img;
+        copy($origem,$destino);
+
+    }else if($tabela =="playstation"){
+        move_uploaded_file($_FILES['imagem']['tmp_name'],'../Midia/img/'. $nome_img);
+        $origem = '../Midia/img/'.$nome_img;
+        $destino = '../Midia/img/img_playstation/'.$nome_img;
+        copy($origem,$destino);
+    }else if($tabela =="pc"){
+        move_uploaded_file($_FILES['imagem']['tmp_name'],'../Midia/img/'. $nome_img);
+        $origem = '../Midia/img/'.$nome_img;
+        $destino = '../Midia/img/img_pc/'.$nome_img;
+        copy($origem,$destino);
+    }else if($tabela =="nitendo"){
+        move_uploaded_file($_FILES['imagem']['tmp_name'],'../Midia/img/img_nintendo'. $nome_img);
+        $origem = '../Midia/img/'.$nome_img;
+        $destino = '../Midia/img/img_nitendo/'.$nome_img;
+        copy($origem,$destino);
+    }
+    unlink('../Midia/img/'.$nome_img);
+}
+
 
 
 

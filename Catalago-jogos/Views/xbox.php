@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../Formatacao/css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../scripts/cardsXbox.js" defer ></script>
-    <script src = "../scripts/filtarXbox.js"></script>
+    <script src = "../scripts/filtarXbox.js" defer></script>
     <script src="../scripts/filtroRequisitos.js" defer></script>
     
     
@@ -34,7 +34,7 @@
             <nav class="nav">
                 <ul>
                 <a href="nitendo.php">
-                        <li id="switch" class="tabela nitendo"><i class="fa-solid fa-gamepad"></i> Nitendo </li>
+                        <li id="switch" ><i class="fa-solid fa-gamepad"></i> Nitendo </li>
                     </a>
                     <a href="playstation.php">
                         <li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li>
@@ -82,18 +82,27 @@
     <div id="menuOculto" class="menuOculto">
         <span class="btnFechar" >&times;</span>
         <form class="filtroForm">
+            
+           
 
             <h2>Filtrar Por:</h2>
-            <label for="os">Os:</label>
+            <label for="requisitos" >Requisitos:</label>
+            <select name="requisitos" id="requisitos">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <label for="os" id="forOs">Os:</label>
             <select name="os" id="os">
-                <option value="ps5">Playstation 5</option>
-                <option value="ps4">Playstation 4</option>
-                <option value="ps3">Playstation 3</option>
+                <option value="xbox 360">Xbox 360</option>
+                <option value="xbox one">Xbox One</option>
+                <option value="xbox s">Xbox S</option>
+                <option value="xbox x">Xbox X</option>
                
             </select>
 
 
-            <label for="armazenamento">armazenamento:</label>
+            <label for="armazenamento" id="forArmazenamento">armazenamento:</label>
             <select name="armazenamento" id="armazenamento">
                 <option value="128gb">128gb</option>
                 <option value="256gb">256gb</option>
@@ -102,17 +111,27 @@
                 <option value="2tb">2tb</option>
             </select>
 
-            <label for="genero">Genero:</label>
+            <label for="generoSearch" >Genero:</label>
+            <select name="generoSearch" id="generoSearch">
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <label for="genero" id="forGenero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
-            <button id='botao-form' name="enviar" >Enviar </button>
+            <button id='botao-form'>Enviar</button>
         </form>
+        <div class="conteinerFiltro">
+            <ul class="results">
+            </ul>
+        </div>
         
     </div>
 
     <!--fim barra lateral-->
 <section id="principal">
-    <h1>Xbox</h1>
+    <h1 class="tabela xbox" >Xbox</h1>
     <div class='conteiner'>
         <!-- <div class="card">
             <div class="conteiner_img">
