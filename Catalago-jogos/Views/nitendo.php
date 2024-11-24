@@ -34,7 +34,7 @@
             <nav class="nav">
                 <ul>
                     <a href="nitendo.php">
-                        <li id="switch" class="tabela nitendo"><i  class="fa-solid fa-gamepad "></i> Nintendo </li>
+                        <li id="switch" ><i  class="fa-solid fa-gamepad "></i> Nintendo </li>
                     </a> 
                     <a href="playstation.php">
                         <li id="plays"><i class="fa-brands fa-playstation"></i> PlayStation</li>
@@ -114,7 +114,7 @@
                 <option value="nao">Não</option>
             </select>
 
-            <label for="genero">Genero:</label>
+            <label for="genero" id="forGenero">Genero:</label>
             <input type="text" name="genero" id="genero">
 
             <button id='botao-form' >Enviar </button>
@@ -127,7 +127,7 @@
 
     <!--fim barra lateral-->
 <section id="principal">
-    <h1>Nintendo</h1>
+    <h1  class="plataforma nitendo">Nintendo</h1>
     <div class='conteiner'>
         <!-- <div class="card">
             <div class="conteiner_img">

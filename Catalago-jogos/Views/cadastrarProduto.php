@@ -15,8 +15,8 @@ if (isset($_POST['nome'])) {
     move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/' . $nome_img);
     $origem = '../Midia/img/'.$nome_img;
     $desenvolvedor = addslashes($_POST['desenvolvedor']);
-    
-    
+    $os = addslashes($_POST['os']);
+    $armazenamento = addslashes($_POST['armazenamento']);
 
     
     //multiplataforma
@@ -41,7 +41,7 @@ if (isset($_POST['nome'])) {
         $destino = '../Midia/img/img_nitendo/'.$nome_img;
         copy($origem,$destino);
         
-        $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+        $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
     } elseif ($tabela == 'playstation') {
         require '../classes/Playstation.php';
         $stmt = new Playstation;
@@ -50,7 +50,7 @@ if (isset($_POST['nome'])) {
         // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_playstation' . $nome_img);
         $destino = '../Midia/img/img_playstation/'.$nome_img;
         copy($origem,$destino);
-        $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+        $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
     } elseif ($tabela == 'xbox') {
         require '../classes/Xbox.php';
         $stmt = new Xbox;
@@ -59,7 +59,7 @@ if (isset($_POST['nome'])) {
         // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_xbox/' . $nome_img);
         $destino = '../Midia/img/img_xbox/'.$nome_img;
         copy($origem,$destino);
-        $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+        $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
     } elseif ($tabela == 'pc') {
         require '../classes/Pc.php';
         $os = addslashes($_POST['os']);
@@ -74,7 +74,7 @@ if (isset($_POST['nome'])) {
         // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_pc/' . $nome_img);
         $destino = '../Midia/img/img_pc/'.$nome_img;
         copy($origem,$destino);
-        $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+        $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
         
     }
 
@@ -90,7 +90,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_nitendo/' . $nome_img);
             $destino = '../Midia/img/img_nitendo/'.$nome_img;
             copy($origem,$destino);
-            $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
            
         } elseif ($selectPlataforma == "playstation") {
             require '../classes/Playstation.php';
@@ -100,7 +100,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_playstation' . $nome_img);
             $destino = '../Midia/img/img_playstation/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
           
         } elseif ($selectPlataforma == "xbox") {
             $destino = '../Midia/img/img_xbox'.$nome_img;
@@ -111,7 +111,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_xbox/' . $nome_img);
             $destino = '../Midia/img/img_xbox/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
           
         } elseif ($selectPlataforma == "pc") {
             $processadorMulti = addslashes($_POST['processadorPlataform']);
@@ -125,7 +125,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_pc/' . $nome_img);
             $destino = '../Midia/img/img_pc/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
          
         }
     }
@@ -144,7 +144,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_nitendo/' . $nome_img);
             $destino = '../Midia/img/img_nitendo/'.$nome_img;
             copy($origem,$destino);
-            $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
 
         }elseif ($selectPlataforma2 == "playstation") {
             $osAdcPlataforma = addslashes($_POST["osPlataform2"]);
@@ -156,7 +156,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_playstation' . $nome_img);
             $destino = '../Midia/img/img_plsyataion/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
           
         } elseif ($selectPlataforma2 == "xbox") {
             $osAdcPlataforma = addslashes($_POST["osPlataform2"]);
@@ -168,7 +168,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_xbox/' . $nome_img);
             $destino = '../Midia/img/img_xbox/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
           
         } elseif ($selectPlataforma2 == "pc") {
             $destino = '../Midia/img/img_pc';
@@ -185,7 +185,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_pc/' . $nome_img);
             $destino = '../Midia/img/img_pc/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
          
         }
     }
@@ -202,7 +202,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_nitendo/' . $nome_img);
             $destino = '../Midia/img/img_nitendo/'.$nome_img;
             copy($origem,$destino);
-            $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $conn->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
 
         }elseif ($selectPlataforma3 == "playstation") {
             $osAdcPlataforma2 = addslashes($_POST["osPlataform3"]);
@@ -214,7 +214,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_playstation' . $nome_img);
             $destino = '../Midia/img/img_playstation/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
           
         } elseif ($selectPlataforma3 == "xbox") {
             $osAdcPlataforma2 = addslashes($_POST["osPlataform3"]);
@@ -226,7 +226,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_xbox/' . $nome_img);
             $destino = '../Midia/img/img_xbox/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
           
         } elseif ($selectPlataforma3 == "pc") {
             $osAdcPlataforma2 = addslashes($_POST["osPlataform3"]);
@@ -242,7 +242,7 @@ if (isset($_POST['nome'])) {
             // move_uploaded_file($_FILES['img']['tmp_name'], '../Midia/img/img_pc/' . $nome_img);
             $destino = '../Midia/img/img_pc/'.$nome_img;
             copy($origem,$destino);
-            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id);
+            $stmt->cadastrarJogo($nome, $descricao, $nome_img, $genero, $fk_id,$desenvolvedor);
          
         }
     }

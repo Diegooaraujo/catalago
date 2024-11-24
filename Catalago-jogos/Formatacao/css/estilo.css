@@ -239,6 +239,7 @@
         
         
     }
+    
     .card h3{
         margin: 8px;
     }
@@ -353,7 +354,9 @@
     }
     .imagem{
         max-width: 30%;
+        min-width: 30%;
         max-height: 100%;
+        
         border-radius: 20px;
         margin-right: 10px;
     }
@@ -458,6 +461,9 @@
             overflow: auto;
             padding: 10px 0;
         }
+    }
+    @media screen and (max-width:827px){
+       .nav{display: none;}
     }
     
 footer{
@@ -589,4 +595,3 @@ footer{
 /*fim pesquisa por requisitos*/
 
 
-    

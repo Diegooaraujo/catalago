@@ -134,7 +134,7 @@
 
     <!--fim barra lateral-->
 <section id="principal">
-    <h1 class="plataforma">Playtation</h1>
+    <h1 class="plataforma playstation">Playtation</h1>
     <div class='conteiner'>
         <!-- <div class="card">
             <div class="conteiner_img">

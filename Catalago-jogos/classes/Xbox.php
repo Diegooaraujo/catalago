@@ -41,13 +41,14 @@
         return $fk_id;
 
     }
-    public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
-        $stmt = $this->instancia->prepare("INSERT INTO xbox (nome, descricao,nome_imagem,fk_id,genero ) values (:nome, :descr, :img,:fk_id,:genero)");
+    public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id,$desenvolvedor ){
+        $stmt = $this->instancia->prepare("INSERT INTO xbox (nome, descricao,nome_imagem,fk_id,genero,desenvolvedor ) values (:nome, :descr, :img,:fk_id,:genero,:desenvolvedor)");
         $stmt->bindValue(':nome',$nome);
         $stmt->bindValue(':descr',$descr);
         $stmt->bindValue(':img',$img);
         $stmt->bindValue(':fk_id',$fk_id);
         $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':desenvolvedor',$desenvolvedor);
             // $stmt->bindValue(':img',$img);
         $stmt->execute();
        

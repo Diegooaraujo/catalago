@@ -5,11 +5,12 @@ const placa = document.querySelector("#placa")
 const memoria = document.querySelector("#memoria")
 const armazenamento = document.querySelector("#armazenamento")
 const gereno = document.querySelector("#genero")
+const generoSearch = document.querySelector("#generoSearch")
 
 const requisitosSearch = document.querySelector("#requisitos")
-requisitosSearch.addEventListener('click',(e)=>{
+requisitosSearch.addEventListener('click', (e) => {
     const valorRequisitos = requisitosSearch.value;
-    if(valorRequisitos == "nao"){
+    if (valorRequisitos == "nao") {
         const forProcessador = document.querySelector("#forProcessador")
         const forPlaca = document.querySelector("#forPlaca")
         const forMemoria = document.querySelector("#forMemoria")
@@ -22,7 +23,7 @@ requisitosSearch.addEventListener('click',(e)=>{
         placa.style.display = "none"
         memoria.style.display = "none"
         armazenamento.style.display = "none"
-    }else{
+    } else {
         const forProcessador = document.querySelector("#forProcessador")
         const forPlaca = document.querySelector("#forPlaca")
         const forMemoria = document.querySelector("#forMemoria")
@@ -36,7 +37,7 @@ requisitosSearch.addEventListener('click',(e)=>{
         memoria.style.display = "flex"
         armazenamento.style.display = "flex"
     }
-    
+
 })
 generoSearch.addEventListener('click', (e) => {
     const valorGeneroSearch = generoSearch.value;
@@ -59,14 +60,15 @@ const ul = document.querySelector(".results")
 let resul = false;
 let clicou = false
 
-if(clicou){
+if (clicou) {
     ul.style.display = "flex"
 
-}else{
-    ul.style.display ="none"
+} else {
+    ul.style.display = "none"
 }
 
 form.addEventListener("submit", (e) => {
+    console.log(1 + 1)
     clicou = true
     e.preventDefault()
     ul.style.display = "flex"
@@ -74,30 +76,84 @@ form.addEventListener("submit", (e) => {
     const valorPlaca = placa.value
     const valorArmazenamento = armazenamento.value
     const valorGenero = formatrString(genero.value)
-    
-    const results = document.querySelectorAll(".results .result")
+    const valorRequisitos = requisitosSearch.value;
+    if (valorRequisitos == 'sim') {
+      
 
-    results.forEach(result=>{
-        const resultDesc = result.querySelector(".resultDesc").textContent
+        const valorGenero = generoSearch.value
+        if (valorGenero == 'sim') {
+           
+            const results = document.querySelectorAll(".results .result")
+            results.forEach(result => {
 
-     
-        if(formatrString(resultDesc).indexOf(valorProcessador)!== -1 || formatrString(resultDesc).indexOf(valorArmazenamento)!== -1 ||formatrString(resultDesc).indexOf(valorPlaca)!== -1 ){
-            result.style.display = 'flex'
-            resul=true
-        }else{
-            result.style.display = 'none'
-            resul=false
+                const resultDesc = result.querySelector(".resultDesc").textContent
+                const generoValue = formatrString(genero.value)
+                if (formatrString(resultDesc).indexOf(valorProcessador) !== -1 || formatrString(resultDesc).indexOf(valorArmazenamento) !== -1 || formatrString(resultDesc).indexOf(valorPlaca) !== -1) {
+                    const itemRequisito = result.querySelector(".generoContent").textContent
+
+                    if (formatrString(itemRequisito).indexOf(generoValue) !== -1) {
+                        result.style.display = 'flex'
+                        resul = true
+                    }
+                } else {
+                    result.style.display = 'none'
+                    resul = false
+
+                }
+            })
+        } else {
             
+           
+            const results = document.querySelectorAll(".results .result")
+            results.forEach(result => {
+
+                const resultDesc = result.querySelector(".resultDesc").textContent
+
+                if (formatrString(resultDesc).indexOf(valorProcessador) !== -1 || formatrString(resultDesc).indexOf(valorArmazenamento) !== -1 || formatrString(resultDesc).indexOf(valorPlaca) !== -1) {
+
+                    result.style.display = 'flex'
+                    resul = true
+
+
+                } else {
+                    result.style.display = 'none'
+                    resul = false
+                }
+
+
+            })
         }
-    })
+    } else {
+        const generoValue = formatrString(genero.value)
+        const valorGenero = generoSearch.value
+        if (valorGenero == 'sim') {
+            console.log('apenas o genero')
+            const results = document.querySelectorAll(".results .result")
+            results.forEach(result => {
+
+                const itemRequisito = result.querySelector(".generoContent").textContent
+               
+                if (formatrString(itemRequisito).indexOf(generoValue) !== -1) {
+                    result.style.display = 'flex'
+                    resul = true
+                }
+                else {
+                    result.style.display = 'none'
+                    resul = false
+
+                }
+            })
+        }
+    }
+
 
 })
 
-function formatrString(value){
+function formatrString(value) {
     return value.toLowerCase().trim();
 
 }
-fetch("../pc.json").then(res=>res.json()).then((json)=>{
+fetch("../pc.json").then(res => res.json()).then((json) => {
     const lista = document.querySelector(".results")
 
     json.forEach((item) => {
@@ -109,7 +165,9 @@ fetch("../pc.json").then(res=>res.json()).then((json)=>{
                 </div>
                 <div class="resultContent">
                     <h2 class="resultTitle">${item.nome}</h2>
-                    <p class="resultDesc"> Processador:${item.processador }, Placa de video: ${ item.placa_video}, Memoria: ${item.memoria}, Armazenamento:${item.armazenamento}</p>
+                    <p class="resultDesc"> Processador:${item.processador}, Placa de video: ${item.placa_video}, Memoria: ${item.memoria}, Armazenamento:${item.armazenamento}</p>
+
+                     <div >Genero:<p class='generoContent'>${item.genero}</p></div>
                 </div>
            
         `;

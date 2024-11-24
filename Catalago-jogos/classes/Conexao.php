@@ -97,7 +97,7 @@ class Conexao
                 $stmt->bindValue(':id', $fk_id);
                 $stmt->execute();
                 $stmt = $this->instancia->prepare('DELETE FROM requisitos_recomendados_pc WHERE id = :fk_id');
-                $stmt->bindValue(':id', $fk_id);
+                $stmt->bindValue(':fk_id', $fk_id);
                 $stmt->execute();
             } else {
                 if (!is_file('../Midia/img/img_pc/' . $nomeImg['nome_imagem'])) {
@@ -122,7 +122,7 @@ class Conexao
                 $stmt->bindValue(':id', $fk_id);
                 $stmt->execute();
                 $stmt = $this->instancia->prepare('DELETE FROM requisitos_recomendados WHERE id = :fk_id');
-                $stmt->bindValue(':id', $fk_id);
+                $stmt->bindValue(':fk_id', $fk_id);
                 $stmt->execute();
             } else {
                 if (!is_file('../Midia/img/img_playstation/' . $nomeImg['nome_imagem'])) {
@@ -147,7 +147,7 @@ class Conexao
                 $stmt->bindValue(':id', $fk_id);
                 $stmt->execute();
                 $stmt = $this->instancia->prepare('DELETE FROM requisitos_recomendados_nitendo WHERE id = :fk_id');
-                $stmt->bindValue(':id', $fk_id);
+                $stmt->bindValue(':fk_id', $fk_id);
                 $stmt->execute();
             } else {
                 if (!is_file('../Midia/img/img_nitendo/' . $nomeImg['nome_imagem'])) {
@@ -172,7 +172,7 @@ class Conexao
                 $stmt->bindValue(':id', $fk_id);
                 $stmt->execute();
                 $stmt = $this->instancia->prepare('DELETE FROM requisitos_recomendados_xbox WHERE id = :fk_id');
-                $stmt->bindValue(':id', $fk_id);
+                $stmt->bindValue(':fk_id', $fk_id);
                 $stmt->execute();
             } else {
                 if (!is_file('../Midia/img/img_xbox/' . $nomeImg['nome_imagem'])) {

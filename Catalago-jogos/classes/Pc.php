@@ -45,13 +45,14 @@ public function getConexao()
     return $fk_id;
 
 }
-public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
-    $stmt = $this->instancia->prepare("INSERT INTO pc (nome, descricao,nome_imagem,fk_id,genero ) values (:nome, :descr, :img,:fk_id,:genero)");
+public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id,$desenvolvedor ){
+    $stmt = $this->instancia->prepare("INSERT INTO pc (nome, descricao,nome_imagem,fk_id,genero,desenvolvedor ) values (:nome, :descr, :img,:fk_id,:genero,:dev)");
     $stmt->bindValue(':nome',$nome);
     $stmt->bindValue(':descr',$descr);
     $stmt->bindValue(':img',$img);
     $stmt->bindValue(':fk_id',$fk_id);
     $stmt->bindValue(':genero',$genero);
+    $stmt->bindValue(':dev',$desenvolvedor);
         // $stmt->bindValue(':img',$img);
     $stmt->execute();
    
@@ -70,47 +71,97 @@ public function editarJogoPc($id){
     }
 }
 public function updateJogosPc($id,$nome,$desc,$img,$genero,$desenvolvedor){
-    if($nome == ''&& $desc == '' && $genero == ''){
-        header('location: admin.php');
-    }else if($nome == '' && $desc !='' && $genero !=''){
-        $stmt = $this->instancia->prepare('UPDATE pc SET descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
-        $stmt->bindValue('descricao',$desc);
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':genero',$genero);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
-    }else if($desc != "" && $nome==''  && $genero ==''){
-        $stmt = $this->instancia->prepare('UPDATE pc SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
-        $stmt->bindValue('descricao',$desc);
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
-    }else if($genero != '' && $nome =='' && $desc == ""){
-        $stmt = $this->instancia->prepare('UPDATE pc SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+    if($img){
+        if($nome == ''&& $desc == '' && $genero == ''){
+            header('location: admin.php');
+        }else if($nome == '' && $desc !='' && $genero !=''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET descricao = :descricao, nome_imagem = :img, genero = :genero WHERE fk_id = :id');
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }else if($desc != "" && $nome==''  && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }else if($genero != '' && $nome =='' && $desc == ""){
+            $stmt = $this->instancia->prepare('UPDATE pc SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+            
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+        else if($nome !='' && $desc == '' && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+    
+        else if($nome !='' && $desc != '' && $genero !=''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor =:dev WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':dev',$desenvolvedor);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        } else if($desenvolvedor !='' && $desc == '' && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET  nome_imagem = :img, desenvolvedor =:dev WHERE fk_id = :id');
+            $stmt->bindValue(':img',$img);
+            $stmt->bindValue(':dev',$desenvolvedor);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
+    }else{
+        if($nome == ''&& $desc == '' && $genero == ''){
+            header('location: admin.php');
+        }else if($nome == '' && $desc !='' && $genero !=''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET descricao = :descricao, genero = :genero WHERE fk_id = :id');
+            $stmt->bindValue('descricao',$desc);
+           
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }else if($desc != "" && $nome==''  && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET  descricao = :descricao WHERE fk_id = :id');
+            $stmt->bindValue('descricao',$desc);
+          
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }else if($genero != '' && $nome =='' && $desc == ""){
+            $stmt = $this->instancia->prepare('UPDATE pc SET genero = :genero WHERE fk_id = :id');
+            
+           
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
         
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':genero',$genero);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
+    
+        else if($nome !='' && $desc != '' && $genero !=''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, genero = :genero, desenvolvedor =:dev WHERE fk_id = :id');
+            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue('descricao',$desc);
+            $stmt->bindValue(':genero',$genero);
+            $stmt->bindValue(':dev',$desenvolvedor);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        } else if($desenvolvedor !='' && $desc == '' && $genero ==''){
+            $stmt = $this->instancia->prepare('UPDATE pc SET  desenvolvedor =:dev WHERE fk_id = :id');
+          
+            $stmt->bindValue(':dev',$desenvolvedor);
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+        }
     }
-    else if($nome !='' && $desc == '' && $genero ==''){
-        $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
-        $stmt->bindValue(':nome',$nome);
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
-    }
-
-    else if($nome !='' && $desc != '' && $genero !=''){
-        $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor =:dev WHERE fk_id = :id');
-        $stmt->bindValue(':nome',$nome);
-        $stmt->bindValue('descricao',$desc);
-        $stmt->bindValue(':img',$img);
-        $stmt->bindValue(':genero',$genero);
-        $stmt->bindValue(':dev',$desenvolvedor);
-        $stmt->bindValue(':id',$id);
-        $stmt->execute();
-    }
+   
 
 
     // $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');

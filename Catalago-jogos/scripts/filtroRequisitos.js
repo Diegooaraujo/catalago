@@ -4,7 +4,7 @@ const armazenamento = document.querySelector("#armazenamento")
 const gereno = document.querySelector("#genero")
 const generoSearch = document.querySelector("#generoSearch")
 const requisitosSearch = document.querySelector("#requisitos")
-const tabela = document.querySelector('.tabela')
+const tabela = document.querySelector('.plataforma')
 const nometabela = tabela.classList[1]
 
 
@@ -30,9 +30,11 @@ requisitosSearch.addEventListener('click', (e) => {
         const ForOs = document.querySelector("#forOs")
         const ForArmazenamento = document.querySelector("#forArmazenamento")
         os.style.display = 'flex'
-        genero.style.display = 'flex'
+        
         ForOs.style.display = 'flex'
         ForArmazenamento.style.display = 'flex'
+        armazenamento.style.display = 'flex'
+
     }
 })
 generoSearch.addEventListener('click', (e) => {
@@ -75,41 +77,46 @@ form.addEventListener("submit", (e) => {
         if (valorGeneroSearch == 'sim') {
             const results = document.querySelectorAll(".results .result")
             results.forEach(result => {
-
+                const valorGenero = formatrString(genero.value)
                 const resultDesc = result.querySelector(".resultDesc").textContent
                
                 if (formatrString(resultDesc).indexOf(valorOs) !== -1 || formatrString(resultDesc).indexOf(valorArmazenamento) !== -1 ) {
                     const itemRequisito = result.querySelector(".generoContent").textContent
-                    if(formatrString(itemRequisito).indexOf(valorGenero) !== -1 ){ result.style.display = 'flex'
-                        resul = true}
+                    if(formatrString(itemRequisito).indexOf(valorGenero) !== -1 ){ 
+                        result.style.display = 'flex'
+                        resul = true
+                    }
                 } else {
                     result.style.display = 'none'
                     resul = false
 
                 }
             })
+        }else{
+            const results = document.querySelectorAll(".results .result")
+            results.forEach(result => {
+
+                const resultDesc = result.querySelector(".resultDesc").textContent
+               
+                if (formatrString(resultDesc).indexOf(valorOs) !== -1 || formatrString(resultDesc).indexOf(valorArmazenamento) !== -1 ) {
+                    
+                    result.style.display = 'flex'
+                    resul = true
+                
+                    result.style.display = 'none'
+                    resul = false
+                }
+
+            
+            })
         }
-        const results = document.querySelectorAll(".results .result")
-        results.forEach(result => {
-
-            const resultDesc = result.querySelector(".resultDesc").textContent
-
-
-            if (formatrString(resultDesc).indexOf(valorOs) !== -1 || formatrString(resultDesc).indexOf(valorArmazenamento) !== -1) {
-
-
-                result.style.display = 'flex'
-                resul = true
-            } else {
-                result.style.display = 'none'
-                resul = false
-
-            }
-        })
+      
     } else {
-        const valorGeneroSearch = generoSearch.value;
+        const valorGenero = formatrString(genero.value)
+        const valorGeneroSearch = formatrString(generoSearch.value);
 
         if (valorGeneroSearch == 'sim') {
+            
             const results = document.querySelectorAll(".results .result")
 
             results.forEach(result => {

@@ -108,7 +108,7 @@
                 <option value="RTX3060">RTX3060</option>
             </select>
 
-            <label for="memoria" id="forMemora">memoria ram:</label>
+            <label for="memoria" id="forMemoria">memoria ram:</label>
             <select name="memoria" id="memoria">
                 <option value="4gb">4gb</option>
                 <option value="6gb">6gb</option>
@@ -135,7 +135,7 @@
                 <option value="nao">Não</option>
             </select>
 
-            <label for="genero">Genero:</label>
+            <label for="genero" id='forGenero'>Genero:</label>
             <input type="text" name="genero" id="genero">
 
             <button  id='botao-form' > Enviar</button>

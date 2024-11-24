@@ -41,13 +41,14 @@
         return $fk_id;
 
     }
-    public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id ){
-        $stmt = $this->instancia->prepare("INSERT INTO nitendo (nome, descricao,nome_imagem,fk_id,genero ) values (:nome, :descr, :img,:fk_id,:genero)");
+    public function cadastrarJogo($nome, $descr, $img,$genero,$fk_id,$desenvolvedor ){
+        $stmt = $this->instancia->prepare("INSERT INTO nitendo (nome, descricao,nome_imagem,fk_id,genero,desenvolvedor ) values (:nome, :descr, :img,:fk_id,:genero,:desenvolvedor)");
         $stmt->bindValue(':nome',$nome);
         $stmt->bindValue(':descr',$descr);
         $stmt->bindValue(':img',$img);
         $stmt->bindValue(':fk_id',$fk_id);
         $stmt->bindValue(':genero',$genero);
+        $stmt->bindValue(':desenvolvedor',$desenvolvedor);
             // $stmt->bindValue(':img',$img);
         $stmt->execute();
        
@@ -67,41 +68,83 @@
     }
     public function updateJogosNitendo($id,$nome,$desc,$img,$genero,$desenvolvedor){
         // $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, nome_imagem = :img WHERE fk_id = :id');
-        if($nome == ''&& $desc == '' && $genero == ''){
-            header('location: admin.php');
+        if($img){
+            if($nome == ''&& $desc == '' && $genero == ''){
+                header('location: admin.php');
+            }
+            else if($desc != "" && $nome==''  && $genero ==''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
+                $stmt->bindValue('descricao',$desc);
+                $stmt->bindValue(':img',$img);
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            else if($genero != '' && $nome =='' && $desc == ""){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
+                
+                $stmt->bindValue(':img',$img);
+                $stmt->bindValue(':genero',$genero);
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            else if($nome !='' && $desc == '' && $genero ==''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
+                $stmt->bindValue(':nome',$nome);
+                $stmt->bindValue(':img',$img);
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            else if($nome !='' && $desc != '' && $genero !=''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor = :dev WHERE fk_id = :id');
+                $stmt->bindValue(':nome',$nome);
+                $stmt->bindValue('descricao',$desc);
+                $stmt->bindValue(':img',$img);
+                $stmt->bindValue(':genero',$genero);
+                $stmt->bindValue(':id',$id);
+                $stmt->bindValue(':dev',$desenvolvedor);
+                $stmt->execute();
+            }else if($img !='' && $desc == '' && $genero ==''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET nome_imagem = :img WHERE fk_id = :id');
+             
+                $stmt->bindValue(':img',$img);
+                
+                $stmt->bindValue(':id',$id);
+               
+                $stmt->execute();
+            }
+        }else{
+            if($nome == ''&& $desc == '' && $genero == ''){
+                header('location: admin.php');
+            }
+            else if($desc != "" && $nome==''  && $genero ==''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET  descricao = :descricao WHERE fk_id = :id');
+                $stmt->bindValue('descricao',$desc);
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            else if($genero != '' && $nome =='' && $desc == ""){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET genero = :genero WHERE fk_id = :id');
+                $stmt->bindValue(':genero',$genero);
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            else if($nome !='' && $desc == '' && $genero ==''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome WHERE fk_id = :id');
+                $stmt->bindValue(':nome',$nome);
+                $stmt->bindValue(':id',$id);
+                $stmt->execute();
+            }
+            else if($nome !='' && $desc != '' && $genero !=''){
+                $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, genero = :genero, desenvolvedor = :dev WHERE fk_id = :id');
+                $stmt->bindValue(':nome',$nome);
+                $stmt->bindValue('descricao',$desc);
+                $stmt->bindValue(':genero',$genero);
+                $stmt->bindValue(':id',$id);
+                $stmt->bindValue(':dev',$desenvolvedor);
+                $stmt->execute();
+            }
         }
-        else if($desc != "" && $nome==''  && $genero ==''){
-            $stmt = $this->instancia->prepare('UPDATE nitendo SET  descricao = :descricao,nome_imagem = :img WHERE fk_id = :id');
-            $stmt->bindValue('descricao',$desc);
-            $stmt->bindValue(':img',$img);
-            $stmt->bindValue(':id',$id);
-            $stmt->execute();
-        }
-        else if($genero != '' && $nome =='' && $desc == ""){
-            $stmt = $this->instancia->prepare('UPDATE nitendo SET nome_imagem = :img,genero = :genero WHERE fk_id = :id');
-            
-            $stmt->bindValue(':img',$img);
-            $stmt->bindValue(':genero',$genero);
-            $stmt->bindValue(':id',$id);
-            $stmt->execute();
-        }
-        else if($nome !='' && $desc == '' && $genero ==''){
-            $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome,  nome_imagem = :img WHERE fk_id = :id');
-            $stmt->bindValue(':nome',$nome);
-            $stmt->bindValue(':img',$img);
-            $stmt->bindValue(':id',$id);
-            $stmt->execute();
-        }
-        else if($nome !='' && $desc != '' && $genero !=''){
-            $stmt = $this->instancia->prepare('UPDATE nitendo SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor = :dev WHERE fk_id = :id');
-            $stmt->bindValue(':nome',$nome);
-            $stmt->bindValue('descricao',$desc);
-            $stmt->bindValue(':img',$img);
-            $stmt->bindValue(':genero',$genero);
-            $stmt->bindValue(':id',$id);
-            $stmt->bindValue(':dev',$desenvolvedor);
-            $stmt->execute();
-        }
+        
         // $stmt->bindValue(':nome',$nome);
         // $stmt->bindValue('descricao',$desc);
         // $stmt->bindValue(':img',$img);

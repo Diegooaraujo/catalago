@@ -131,7 +131,7 @@
 
     <!--fim barra lateral-->
 <section id="principal">
-    <h1 class="tabela xbox" >Xbox</h1>
+    <h1  class="plataforma xbox" >Xbox</h1>
     <div class='conteiner'>
         <!-- <div class="card">
             <div class="conteiner_img">

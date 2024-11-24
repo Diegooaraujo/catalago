@@ -38,14 +38,15 @@ class Playstation
         $fk_id = $this->instancia->lastInsertId();
         return $fk_id;
     }
-    public function cadastrarJogo($nome, $descr, $img, $genero, $fk_id)
+    public function cadastrarJogo($nome, $descr, $img, $genero, $fk_id,$desenvolvedor)
     {
-        $stmt = $this->instancia->prepare("INSERT INTO playstation (nome, descricao,nome_imagem,fk_id,genero ) values (:nome, :descr, :img,:fk_id,:genero)");
+        $stmt = $this->instancia->prepare("INSERT INTO playstation (nome, descricao,nome_imagem,fk_id,genero,desenvolvedor ) values (:nome, :descr, :img,:fk_id,:genero,:desenvolvedor)");
         $stmt->bindValue(':nome', $nome);
         $stmt->bindValue(':descr', $descr);
         $stmt->bindValue(':img', $img);
         $stmt->bindValue(':fk_id', $fk_id);
         $stmt->bindValue(':genero', $genero);
+        $stmt->bindValue(':desenvolvedor', $desenvolvedor);
         // $stmt->bindValue(':img',$img);
         $stmt->execute();
     }
@@ -109,6 +110,11 @@ class Playstation
                 $stmt->bindValue(':nome', $nome);
                 $stmt->bindValue('descricao', $desc);
                 $stmt->bindValue(':genero', $genero);
+                $stmt->bindValue(':id', $id);
+                $stmt->bindValue(':dev', $desenvolvedor);
+                $stmt->execute();
+            }else if ($desenvolvedor != '' && $desc == '' && $genero == '') {
+                $stmt = $this->instancia->prepare('UPDATE playstation SET  desenvolvedor = :dev WHERE fk_id = :id');
                 $stmt->bindValue(':id', $id);
                 $stmt->bindValue(':dev', $desenvolvedor);
                 $stmt->execute();
