@@ -102,6 +102,7 @@ public function updateJogosPc($id,$nome,$desc,$img,$genero,$desenvolvedor){
             $stmt->bindValue(':id',$id);
             $stmt->execute();
         }
+        
     
         else if($nome !='' && $desc != '' && $genero !=''){
             $stmt = $this->instancia->prepare('UPDATE pc SET nome = :nome, descricao = :descricao, nome_imagem = :img, genero = :genero, desenvolvedor =:dev WHERE fk_id = :id');
@@ -231,6 +232,14 @@ public function updateJogosPc($id,$nome,$desc,$img,$genero,$desenvolvedor){
         $stmt->bindValue(':armazenamento',$armazenamento);
         $stmt->bindValue(':id',$id);
         $stmt->execute();
+        }
+        else if($memoria != "" && $placa_video == '' && $armazenamento == ''&& $processador == ""&& $os == ''){
+            $stmt = $this->instancia->prepare('UPDATE requisitos_recomendados_pc SET memoria = :memoria WHERE id = :id');
+            $stmt->bindValue(':memoria',$memoria);
+            
+            $stmt->bindValue(':id',$id);
+            $stmt->execute();
+    
         }
     
 

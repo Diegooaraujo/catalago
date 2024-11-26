@@ -83,8 +83,8 @@
             
             <select name="selectPlataforma" id="selectPlataforma">
                 <option value="playstation">Playstation</option>
-                <option value="pc" selected>PC</option>
-                <option value="nitendo">Nitendo</option>
+                <option value="pc" >PC</option>
+                <option value="nitendo" selected>Nitendo</option>
                 <option value="xbox">Xbox</option>
             </select> 
             
