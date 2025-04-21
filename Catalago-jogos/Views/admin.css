@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#sair{
+    color: red;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 20px 20px 20px 0px;
+
+}
+#cadastrar{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 20px 0; 
+}
+
+header{
+    background-color: #777777;
+    padding: 10px;
+
+}
+
+h1{
+    text-align: center;
+}
+h2{
+    margin:20px;
+}
+.conteiner{
+    padding: 5px 10px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #777777;
+    max-width: 1900px;
+    border-radius: 20px;
+    
+    
+}
+table{
+    margin: 10px auto;
+}
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px 10px;
+    background-color: #fff;
+    font-size: 17px;
+    
+}
+
+.titulo{
+    background-color: #3134f0;
+}
+.editar,.excluir{
+    color: black;
+    transition: 0.5s;
+    display: block;
+
+}
+.editar{
+   margin:10px 0px;
+}
+

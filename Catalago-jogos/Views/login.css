@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fff;
+  
+}
+.content{
+  
+  display: flex;
+  
+  align-items: center;
+  width: 60%;
+  height: 70%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 4px 4px 4px black;
+}
+
+
+
+.left{
+  width:50%;
+  left: 0;
+  height: 100%;
+  
+  
+}
+.left img{
+  width: 100%;
+  height: 100%;
+}
+.right{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width:50%;
+  
+}
+
+.container {
+  background-color: rgba(245, 245, 245, 0.527);
+  padding: 6px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+form {
+  position: absolute;
+  margin-top: 190px;
+  transition: .5s;
+  width: 100%;
+  height: 400px;
+  
+  
+}
+.conteiner-form p{
+  font-size: 16px;
+}
+
+.conteiner-form{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.buttonsForm {
+  margin-top: 130px;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0 0 7px 0 blueviolet;
+}
+
+.buttonsForm button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+  padding: 10px 29px;
+}
+
+.btnColor {
+  position: absolute;
+  width: 108px;
+  height: 100%;
+  background: linear-gradient(to right, #5956e9, #a963f8);
+  border-radius: 30px;
+  transition: .3s;
+}
+
+input[type="text"], input[type="password"] {
+  border: none;
+  margin-top: 20px;
+  border-radius: 60px;
+  padding: 20px 40px;
+  outline: none;
+  width: 100%;
+  background-color: #5856e963;
+  
+}
+
+
+button[type="submit"] {
+  background: #660fc8;
+  color: white;
+  border-radius: 30px;
+  width: 300px;
+  border: none;
+  outline: none;
+  padding: 8px 0 8px 15px;
+  font-size: 15px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button[type="submit"]:hover{
+  transform:scale(1.1);
+  box-shadow: 0px 0px 8px #660fc8;
+}
+
+
+
+#signin {
+  
+  left:17%;
+}
+
+#signup {
+  left: 1000px;
+}
+
+i {
+  position: absolute;
+  left: 0;
+  padding: 10px 10px;
+  font-size: 20px;
+}
+
+.iEmail {
+  top: 104px;
+
+}
+
+.iPassword {
+  top: 183px;
+}
+
+.iPassword2 {
+  top: 262px;
+}
+
+@media screen and (max-width: 1400px){
+  .buttonsForm{
+    margin-top: 30px;
+  }
+  form{
+    margin-top: 100px;
+  }
+  .conteiner-form{
+    width: 70%;
+  }
+  button[type="submit"]{
+    margin-top: 6%;
+  }
+  input[type="text"], input[type="password"]{
+    margin-top: 20px;
+    padding: 20px 40px;
+  }
+  i{
+    font-size: 17px;
+  }
+  .iEmail{
+    top: 92px;
+  }
+  .iPassword{
+    top: 148px;
+  }
+  .iPassword2 {
+    top: 205px;
+  }
+  
+  
+}
+
+@media screen and (max-width: 2032px){
+  .buttonsForm{
+    margin-top: 30px;
+  }
+  form{
+    margin-top: 190px;
+  }
+  .conteiner-form{
+    width: 70%;
+  }
+  button[type="submit"]{
+    margin-top: 6%;
+  }
+  input[type="text"], input[type="password"]{
+    margin-top: 20px;
+    padding: 20px 40px;
+  }
+  i{
+    font-size: 17px;
+  }
+  .iEmail{
+    top: 104px;
+  }
+  .iPassword{
+    top: 182px;
+  }
+  .iPassword2 {
+    top: 262px;
+  }
+  .buttonsForm{
+    margin-top:120px ;
+  }
+  
+    
+    
+}
+
+  @media screen and (max-width: 1480px){
+   
+    button[type="submit"]{
+      width: 100%;
+    }
+    .iEmail{
+      top: 104px;
+    }
+    .iPassword{
+      top: 182px;
+    }
+    .iPassword2 {
+      top: 262px;
+    }
+    
+    
+  }
+  @media screen and (max-width: 1154px){
+   
+    .upEmail{
+      top: 127px;
+    }
+    .upPassword{
+      top: 206px;
+    }
+    .upPassword2{
+      top: 285px;
+    }
+  }
+ 
+  
+  @media screen and (max-width: 1109px){
+  .content{
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    
+  }
+  .container{
+    border-radius: 20px;
+  }
+  .left{
+    display: none;
+  }
+  .upEmail{
+    top: 105px;
+  }
+  .upPassword{
+    top: 184px;
+  }
+  .upPassword2{
+    top: 263px;
+  }
+ 
+  
+}
+
+@media screen and (max-width: 666px){
+  
+  .conteiner-form h1{
+    font-size: 25px;
+    
+  }
+  .iEmail{
+    top: 94px;
+  }
+  .iPassword{
+    top: 174px;
+  }
+  
+  
+}
+@media screen and (max-width: 519px){
+ 
+  .conteiner-form h1{
+    font-size: 24px; 
+  }
+  .iEmail{
+    top: 92px;
+  }
+  .iPassword{
+    top: 172px;
+  }
+  
+  
+  
+}
+
